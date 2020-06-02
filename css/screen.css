@@ -1,0 +1,255 @@
+
+
+/* ================================================================================ META
+*/
+
+
+/* font-size: calc((X / 16 * 1em) + (Y - X) * (100vw - 20em) / (Z - 320)); */
+
+html {
+    font-size: 18px;
+    font-size: calc((10 / 16 * 1em) + (16 - 10) * (100vw - 20em) / (1600 - 320));
+}
+
+@font-face {
+    font-family: 'gja-regular';
+    src:
+            url('../font/GT-America-Standard-Regular.eot') format('eot'),
+            url('../font/GT-America-Standard-Regular.woff') format('woff'),
+            url('../font/GT-America-Standard-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'gja-extended-regular';
+    src:
+            url('../font/GT-America-Extended-Regular.eot') format('eot'),
+            url('../font/GT-America-Extended-Regular.woff') format('woff'),
+            url('../font/GT-America-Extended-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'gja-extended-bold';
+    src:
+            url('../font/GT-America-Extended-Bold.eot') format('eot'),
+            url('../font/GT-America-Extended-Bold.woff') format('woff'),
+            url('../font/GT-America-Extended-Bold.ttf') format('truetype');
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+/* ================================================================================ BASE
+*/
+
+/*
+$fontsize-s: 1.2rem;
+$fontsize-m: 1.4rem;
+$fontsize-l: 1.8rem;
+
+$color-footer:  #DDDDDD;
+$accent:        #3399FF;
+
+$column: 100vw/6;
+*/
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    color: black;
+
+    font-family: 'gja-regular', arial, sans-serif;
+    line-height: 1.4;
+
+    overflow-x: hidden;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+}
+
+::selection {
+    background: black;
+    color: white;
+}
+
+
+/* ================================================================================ LAYOUT
+*/
+
+/* -------------------------------------------------- HEADER
+*/
+
+
+header {
+    z-index: 100;
+    width: 6rem;
+    margin: 1.5rem;
+    position: fixed;
+}
+
+
+/* -------------------------------------------------- CONTENT
+*/
+
+
+section {
+    padding: 4rem 0;
+}
+
+#info {
+    width: calc(4*(100vw/6));
+    margin: 0 calc(100vw/6);
+    padding-top: 1.35rem;
+}
+
+#info h1 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    font-family: 'gja-extended-bold', arial, sans-serif;
+}
+
+#info p {
+    margin-top: 5.04rem;
+    font-size: 1.8rem;
+    font-family: 'gja-regular', arial, sans-serif;
+}
+
+#info p a:after {
+    content: '';
+    width: 100%;
+    height: 0.15rem;
+    margin-bottom: -0.15rem;
+    transform: translateY(-0.15em);
+    display: block;
+    background: black;
+
+    transition:
+            width 0.2s ease,
+            margin-left 0.2s ease;
+}
+
+#info a:hover:after {
+    width: 0;
+    margin-left: 50%;
+}
+
+#projects .slideshow {
+    position: relative;
+    visibility: hidden;
+}
+#projects .slideshow.slick-initialized {
+    visibility: visible;
+}
+
+#projects .slideshow .slide {
+    position: relative;
+    width: calc(5 * (100vw / 6));
+}
+
+#projects .slideshow .slide img:hover {
+    cursor: move;
+}
+
+#projects .slideshow .slide img {
+    width: 80%;
+}
+
+#projects .slideshow .slide .caption {
+    position: relative;
+    padding: 0.84rem calc(100vw/6);
+    font-size: 1.2rem;
+}
+
+
+/* -------------------------------------------------- FOOTER
+*/
+
+
+footer {
+    float: left;
+    width: 100vw;
+    padding: 3rem 0;
+    margin-top: 2rem;
+    background: #DDDDDD;
+    font-size: 1.2rem;
+}
+
+footer div {
+    width: calc(2*(100vw/6));
+    margin-left: calc(100vw/6);
+    float: left;
+}
+
+footer div p {
+    width: 100%;
+    font-family: 'gja-regular', arial, sans-serif;
+}
+
+
+/* ================================================================================ RESPONSIVENESS
+*/
+
+@media only screen and (max-width: 800px) {
+
+    header {
+        position: absolute;
+    }
+
+    #info p, h1 {
+        padding: 0 1.5rem;
+        width: 100%;
+    }
+
+    #info h1 {
+        margin-left: 9rem;
+    }
+
+    #projects .slideshow .slide {
+        width: calc(5.5*(100vw/6));
+    }
+
+    #projects .slideshow .slide img {
+        width: calc(5*(100vw/6));
+    }
+
+    #projects .slideshow .slide .caption {
+        padding: 0.84rem 1.5rem;
+    }
+
+    footer {
+        padding: 3rem 1.5rem;
+    }
+
+    footer div {
+        width: 50%;
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+
+    #info {
+        padding-top: 8.91rem;
+        margin: 0;
+        width: 100%;
+    }
+
+    #info h1 {
+        margin-left: 0;
+    }
+    #info p {
+        margin-top: 2.52rem;
+    }
+
+    footer div {
+        float: none;
+        width: 100%;
+        margin-top: 1.68rem;
+    }
+}
+
+
+
