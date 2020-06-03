@@ -12,43 +12,41 @@ html {
 }
 
 @font-face {
-    font-family: 'gja-regular';
-    src:
-            url('../font/GT-America-Standard-Regular.eot') format('eot'),
-            url('../font/GT-America-Standard-Regular.woff') format('woff'),
-            url('../font/GT-America-Standard-Regular.ttf') format('truetype');
+    font-family: 'domaine';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../font/DomaineText-Regular.otf');
 }
 @font-face {
-    font-family: 'gja-extended-regular';
-    src:
-            url('../font/GT-America-Extended-Regular.eot') format('eot'),
-            url('../font/GT-America-Extended-Regular.woff') format('woff'),
-            url('../font/GT-America-Extended-Regular.ttf') format('truetype');
+    font-family: 'domaine';
+    font-weight: normal;
+    font-style: italic;
+    src: url('../font/DomaineText-RegularItalic.otf');
 }
 @font-face {
-    font-family: 'gja-extended-bold';
-    src:
-            url('../font/GT-America-Extended-Bold.eot') format('eot'),
-            url('../font/GT-America-Extended-Bold.woff') format('woff'),
-            url('../font/GT-America-Extended-Bold.ttf') format('truetype');
+    font-family: 'domaine';
+    font-weight: bold;
+    font-style: normal;
+    src: url('../font/DomaineText-Bold.otf');
+}
+@font-face {
+    font-family: 'domaine';
+    font-weight: bold;
+    font-style: italic;
+    src: url('../font/DomaineText-BoldItalic.otf');
 }
 
-p, h1, h2, h3, h4, h5, h6 {
-    margin: 0;
+@font-face {
+    font-family: 'vg5000';
+    src:
+            url('../font/VG5000-Regular_web.otf'),
+            url('../font/VG5000-Regular_web.eot') format('eot'),
+            url('../font/VG5000-Regular_web.woff') format('woff'),
+            url('../font/VG5000-Regular_web.woff2') format('woff2'),
+            url('../font/VG5000-Regular_web.ttf') format('ttf');
 }
 
 /* ================================================================================ BASE
-*/
-
-/*
-$fontsize-s: 1.2rem;
-$fontsize-m: 1.4rem;
-$fontsize-l: 1.8rem;
-
-$color-footer:  #DDDDDD;
-$accent:        #3399FF;
-
-$column: 100vw/6;
 */
 
 body {
@@ -57,8 +55,8 @@ body {
     text-rendering: optimizeLegibility;
     color: black;
 
-    font-family: 'gja-regular', arial, sans-serif;
-    line-height: 1.4;
+    font-family: 'domaine', arial, sans-serif;
+    line-height: 1.7;
 
     overflow-x: hidden;
 }
@@ -71,7 +69,7 @@ a {
 }
 
 ::selection {
-    background: black;
+    background: rgb(220, 176, 136);
     color: white;
 }
 
@@ -79,15 +77,59 @@ a {
 /* ================================================================================ LAYOUT
 */
 
+/* -------------------------------------------------- MODAL MESSAGE
+*/
+
+#modal-message {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100vw;
+    background: rgb(220, 176, 136);
+    color: white;
+    padding: 3rem;
+    padding-right: 5rem;
+    transition: .3s ease-out;
+    font-size: 1.2rem;
+}
+#modal-message a {
+    color: white;
+    transition: .1s ease;
+}
+#modal-message a:hover {
+    color: black;
+}
+
+#modal-message.hidden {
+    transform: translateY(-10rem);
+}
+
+#close-modal-message {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    width: 2rem;
+    height: 2rem;
+}
+#close-modal-message svg {
+    width: 100%;
+    height: 100%;
+    fill: white;
+    transition: .3s ease;
+}
+#close-modal-message svg:hover {
+    transform: rotate(90deg);
+}
+
 /* -------------------------------------------------- HEADER
 */
 
 
 header {
+    position: fixed;
     z-index: 100;
     width: 6rem;
     margin: 1.5rem;
-    position: fixed;
 }
 
 
@@ -99,6 +141,26 @@ section {
     padding: 4rem 0;
 }
 
+#banner {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#banner #clock-wordmark {
+    position: absolute;
+    width: 70%;
+    max-width: 70%;
+    max-height: 70%;
+}
+#banner #clock {
+    width: 70%;
+    max-width: 70%;
+    max-height: 70%;
+    transition: transform 0.3s cubic-bezier(.4,2.08,.55,.44);
+}
+
 #info {
     width: calc(4*(100vw/6));
     margin: 0 calc(100vw/6);
@@ -106,15 +168,17 @@ section {
 }
 
 #info h1 {
+    margin-top: 5rem;
+    visibility: hidden;
     font-size: 1.8rem;
-    font-weight: 500;
-    font-family: 'gja-extended-bold', arial, sans-serif;
+    font-family: 'domaine', arial, sans-serif;
+    font-weight: bold;
 }
 
 #info p {
     margin-top: 5.04rem;
     font-size: 1.8rem;
-    font-family: 'gja-regular', arial, sans-serif;
+    font-family: 'domaine', arial, sans-serif;
 }
 
 #info p a:after {
@@ -136,28 +200,28 @@ section {
     margin-left: 50%;
 }
 
-#projects .slideshow {
+#bottle .slideshow {
     position: relative;
     visibility: hidden;
 }
-#projects .slideshow.slick-initialized {
+#bottle .slideshow.slick-initialized {
     visibility: visible;
 }
 
-#projects .slideshow .slide {
+#bottle .slideshow .slide {
     position: relative;
     width: calc(5 * (100vw / 6));
 }
 
-#projects .slideshow .slide img:hover {
+#bottle .slideshow .slide img:hover {
     cursor: move;
 }
 
-#projects .slideshow .slide img {
+#bottle .slideshow .slide img {
     width: 80%;
 }
 
-#projects .slideshow .slide .caption {
+#bottle .slideshow .slide .caption {
     position: relative;
     padding: 0.84rem calc(100vw/6);
     font-size: 1.2rem;
@@ -173,8 +237,16 @@ footer {
     width: 100vw;
     padding: 3rem 0;
     margin-top: 2rem;
-    background: #DDDDDD;
     font-size: 1.2rem;
+    background: rgb(220, 176, 136);
+    color: white;
+}
+
+footer a {
+    transition: .1s ease;
+}
+footer a:hover {
+    color: black;
 }
 
 footer div {
@@ -185,7 +257,7 @@ footer div {
 
 footer div p {
     width: 100%;
-    font-family: 'gja-regular', arial, sans-serif;
+    font-family: 'domaine', arial, sans-serif;
 }
 
 
@@ -207,15 +279,15 @@ footer div p {
         margin-left: 9rem;
     }
 
-    #projects .slideshow .slide {
+    #bottle .slideshow .slide {
         width: calc(5.5*(100vw/6));
     }
 
-    #projects .slideshow .slide img {
+    #bottle .slideshow .slide img {
         width: calc(5*(100vw/6));
     }
 
-    #projects .slideshow .slide .caption {
+    #bottle .slideshow .slide .caption {
         padding: 0.84rem 1.5rem;
     }
 
