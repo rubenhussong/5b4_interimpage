@@ -168,7 +168,6 @@ section {
 }
 
 #info h1 {
-    margin-top: 5rem;
     visibility: hidden;
     font-size: 1.8rem;
     font-family: 'domaine', arial, sans-serif;
@@ -243,6 +242,7 @@ footer {
 }
 
 footer a {
+    color: white;
     transition: .1s ease;
 }
 footer a:hover {
