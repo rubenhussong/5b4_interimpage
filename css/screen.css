@@ -105,7 +105,7 @@ button:hover {
     background: rgb(220, 176, 136);
     color: white;
     padding: 2rem 3rem;
-    transition: opacity .4s ease-out, visibility 0s .5s;
+    transition: opacity .25s ease-out, visibility 0s .25s;
     font-size: 1.2rem;
 }
 #modal-message a {
@@ -172,7 +172,7 @@ section {
     width: 70%;
     max-width: 70%;
     max-height: 70%;
-    transition: transform 0.5s cubic-bezier(.3,2,.3,.5);
+    transition: transform 0.5s cubic-bezier(.3,2,.6,.6);
 }
 
 #info {
