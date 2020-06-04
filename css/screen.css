@@ -73,6 +73,21 @@ a {
     color: white;
 }
 
+button {
+    padding: 8px 20px;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: none;
+    color: white;
+}
+
+button:hover {
+    background: white;
+    color: rgb(220, 176, 136);
+    cursor: pointer;
+}
+
 
 /* ================================================================================ LAYOUT
 */
@@ -82,14 +97,15 @@ a {
 
 #modal-message {
     position: fixed;
+    display: flex;
+    align-items: center;
     z-index: 100;
     top: 0;
     width: 100vw;
     background: rgb(220, 176, 136);
     color: white;
-    padding: 3rem;
-    padding-right: 5rem;
-    transition: .3s ease-out;
+    padding: 2rem 3rem;
+    transition: opacity .4s ease-out, visibility 0s .5s;
     font-size: 1.2rem;
 }
 #modal-message a {
@@ -101,24 +117,12 @@ a {
 }
 
 #modal-message.hidden {
-    transform: translateY(-10rem);
+    opacity: 0;
+    visibility: hidden;
 }
 
-#close-modal-message {
-    position: absolute;
-    top: 1rem;
-    right: 2rem;
-    width: 2rem;
-    height: 2rem;
-}
-#close-modal-message svg {
-    width: 100%;
-    height: 100%;
-    fill: white;
-    transition: .3s ease;
-}
-#close-modal-message svg:hover {
-    transform: rotate(90deg);
+#modal-message #btn-close-modal {
+    margin-left: 3rem;
 }
 
 /* -------------------------------------------------- HEADER
@@ -322,6 +326,3 @@ footer div p {
         margin-top: 1.68rem;
     }
 }
-
-
-
