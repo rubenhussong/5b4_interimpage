@@ -38,3 +38,25 @@ var closeModalMessage = $('#close-modal-message')
 function closeMessageModal() {
     modalMessage.addClass('hidden')
 }
+
+var scrolledDown = false;
+$(window).scroll(function() {
+    var scrollY = $(window).scrollTop()
+    var height = $(window).height()
+
+    console.log(height + ", " + scrollY)
+
+    var header = $(":header")
+    console.log(header)
+    if(scrollY > height) {
+        if (!scrolledDown) {
+            scrolledDown = true
+            header.toggleClass("visible")
+        }
+    } else {
+        if (scrolledDown) {
+            scrolledDown = false
+            header.toggleClass("visible")
+        }
+    }
+})
