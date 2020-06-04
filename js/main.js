@@ -46,8 +46,7 @@ $(window).scroll(function() {
 
     console.log(height + ", " + scrollY)
 
-    var header = $(":header")
-    console.log(header)
+    var header = $("#header")
     if(scrollY > height) {
         if (!scrolledDown) {
             scrolledDown = true
