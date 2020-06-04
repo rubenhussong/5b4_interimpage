@@ -17,6 +17,8 @@ $(document).ready(function(){
     })
 
     rotateClock();
+    showWordmark($(window).scrollTop())
+    showArrow($(window).scrollTop())
 })
 
 
@@ -42,12 +44,18 @@ function closeMessageModal() {
 var scrolledDown = false;
 $(window).scroll(function() {
     var scrollY = $(window).scrollTop()
+
+    // Wordmark fade
+    showWordmark(scrollY)
+
+    // Scroll Arrow
+    showArrow(scrollY)
+})
+
+function showWordmark(scrollY) {
     var height = $(window).height()
-
-    console.log(height + ", " + scrollY)
-
     var header = $("#header")
-    if(scrollY > height) {
+    if(scrollY >= height) {
         if (!scrolledDown) {
             scrolledDown = true
             header.toggleClass("visible")
@@ -58,4 +66,15 @@ $(window).scroll(function() {
             header.toggleClass("visible")
         }
     }
-})
+}
+
+function showArrow(scrollY) {
+    if (scrollY > 200) {
+        console.log("hey")
+        $("#arrow-scroll-down").addClass("hidden")
+    }
+}
+
+function scrollDown() {
+    $('body,html').animate({ scrollTop: $(window).height() }, 500);
+}

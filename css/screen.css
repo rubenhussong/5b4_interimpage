@@ -80,14 +80,15 @@ button {
     border-radius: 5px;
     background: none;
     color: white;
+    text-decoration: none;
+    cursor: pointer;
 }
+button:focus { outline: none; }
 
 button:hover {
     background: white;
     color: rgb(220, 176, 136);
-    cursor: pointer;
 }
-
 
 /* ================================================================================ LAYOUT
 */
@@ -124,6 +125,43 @@ button:hover {
 #modal-message #btn-close-modal {
     margin-left: 3rem;
 }
+
+/* -------------------------------------------------- SCROLL ARROW
+*/
+#wrapper-arrow-scroll-down {
+    z-index: 100;
+    position: fixed;
+    bottom: 1rem;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#arrow-scroll-down {
+    display: inline-block;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+    transition: opacity .3s ease, transform .3s ease, pointer-events 0s .3s;
+}
+
+#arrow-scroll-down svg {
+    background-size: 30px 30px;
+    fill: black;
+    transition: fill, .1s ease;
+}
+
+#arrow-scroll-down:hover svg {
+    fill: rgb(220, 176, 136);
+}
+
+#arrow-scroll-down.hidden {
+    opacity: 0;
+    transform: translateY(-1rem);
+    pointer-events: none;
+}
+
 
 /* -------------------------------------------------- HEADER
 */
