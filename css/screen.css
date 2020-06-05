@@ -371,24 +371,34 @@ footer div div {
     }
 
     #bottle .slideshow .slide {
-        width: calc(5.5*(100%/6));
+        width: calc(5.5*(100vw/6));
     }
 
     #bottle .slideshow .slide img {
-        width: calc(5*(100%/6));
+        width: calc(5*(100vw/6));
     }
 
     section .caption {
-        padding: 0.84rem 1.5rem;
+        padding: 0.84rem 3rem;
     }
 
     footer {
-        padding: 3rem 1.5rem;
+        padding: 3rem;
     }
 
     footer div {
-        width: 50%;
-        margin: 0;
+        margin: 0
+    }
+    footer div.left {
+        width: 70%;
+    }
+    footer div.right {
+        width: 30%;
+    }
+
+    #arrow-scroll-down svg {
+        width: 32px;
+        height: 32px;
     }
 }
 
