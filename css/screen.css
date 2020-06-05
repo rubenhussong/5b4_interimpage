@@ -98,6 +98,10 @@ a:hover:after {
     background: rgb(220, 176, 136);
     color: white;
 }
+.colored-background ::selection {
+    background: black;
+    color: rgb(220, 176, 136);
+}
 
 button {
     border: none;
@@ -265,6 +269,12 @@ section {
     width: calc(4*(100%/6));
     margin: 8rem calc(100%/6);
     padding-top: 1.35rem;
+}
+.info a:after {
+    height: 3px;
+    margin-bottom: -3px;
+    transform: translateY(-0.2em);
+    background: rgb(220, 176, 136);
 }
 
 .info h1 {
