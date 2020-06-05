@@ -35,13 +35,10 @@ function rotateClock() {
 }
 
 // modal-message
-var modalMessage = $('#modal-message')
-var closeModalMessage = $('#close-modal-message')
 function closeMessageModal() {
-    modalMessage.addClass('hidden')
+    $('#modal-message').addClass('hidden')
 }
 
-var scrolledDown = false;
 $(window).scroll(function() {
     var scrollY = $(window).scrollTop()
 
@@ -56,25 +53,40 @@ function showWordmark(scrollY) {
     var height = $(window).height()
     var header = $("#header")
     if(scrollY >= height) {
-        if (!scrolledDown) {
-            scrolledDown = true
-            header.toggleClass("visible")
+        if (!header.hasClass('visible')) {
+            header.addClass('visible')
         }
     } else {
-        if (scrolledDown) {
-            scrolledDown = false
-            header.toggleClass("visible")
+        if (header.hasClass('visible')) {
+            header.removeClass('visible')
         }
     }
 }
 
 function showArrow(scrollY) {
-    if (scrollY > 200) {
-        console.log("hey")
-        $("#arrow-scroll-down").addClass("hidden")
+    var arrowWrapper = $("#wrapper-arrow-scroll-down")
+    if(scrollY >= 200) {
+        if (!arrowWrapper.hasClass('hidden')) {
+            arrowWrapper.addClass('hidden')
+        }
+    } else {
+        if (arrowWrapper.hasClass('hidden')) {
+            arrowWrapper.removeClass('hidden')
+        }
     }
 }
 
 function scrollDown() {
     $('body,html').animate({ scrollTop: $(window).height() }, 500);
 }
+
+// Button focus live
+$(":button").on('mousedown', function(evt) {
+    $('#' + evt.target.id).addClass("focused")
+})
+$(":button").on('mouseup', function(evt) {
+    $('#' + evt.target.id).removeClass("focused")
+})
+$(":button").on('mouseout', function(evt) {
+    $('#' + evt.target.id).removeClass("focused")
+})

@@ -36,14 +36,20 @@ html {
     src: url('../font/DomaineText-BoldItalic.otf');
 }
 
+
+
+
 @font-face {
     font-family: 'vg5000';
+    src: url('../font/vg5000-regular_web.eot');
     src:
-            url('../font/VG5000-Regular_web.otf'),
-            url('../font/VG5000-Regular_web.eot') format('eot'),
-            url('../font/VG5000-Regular_web.woff') format('woff'),
-            url('../font/VG5000-Regular_web.woff2') format('woff2'),
-            url('../font/VG5000-Regular_web.ttf') format('ttf');
+        url('../font/vg5000-regular_web.eot?#iefix') format('embedded-opentype'),
+        url('../font/vg5000-regular_web.woff2') format('woff2'),
+        url('../font/vg5000-regular_web.woff') format('woff'),
+        url('../font/vg5000-regular_web.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 /* ================================================================================ BASE
@@ -57,6 +63,9 @@ body {
 
     font-family: 'domaine', arial, sans-serif;
     line-height: 1.7;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 
     overflow-x: hidden;
 }
@@ -66,6 +75,23 @@ a {
     text-decoration: none;
     display: inline-block;
     position: relative;
+    font-style: italic;
+}
+a:after {
+    content: '';
+    width: 0;
+    height: 2px;
+    margin-bottom: -2px;
+    transform: translateY(-0.2em);
+    display: block;
+
+    transition:
+            width 0.2s ease,
+            margin-left 0.2s ease;
+}
+
+a:hover:after {
+    width: 100%;
 }
 
 ::selection {
@@ -74,19 +100,31 @@ a {
 }
 
 button {
-    padding: 8px 20px;
-    border: 1px solid #FFFFFF;
-    box-sizing: border-box;
-    border-radius: 5px;
-    background: none;
-    color: white;
-    text-decoration: none;
+    border: none;
     cursor: pointer;
+    background: none;
+    box-sizing: border-box;
 }
-button:focus { outline: none; }
+button:focus {
+    outline: none;
+}
 
-button:hover {
-    background: white;
+.button {
+    font-family: 'vg5000', Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 6px 12px;
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+    color: white;
+    transition: .2s ease;
+}
+.button.focused {
+    background-color: rgba(255, 255, 255, .8) !important;
+}
+
+.button:hover {
+    background-color: white;
     color: rgb(220, 176, 136);
 }
 
@@ -100,9 +138,10 @@ button:hover {
     position: fixed;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     z-index: 100;
     top: 0;
-    width: 100vw;
+    width: 100%;
     background: rgb(220, 176, 136);
     color: white;
     padding: 2rem 3rem;
@@ -111,10 +150,9 @@ button:hover {
 }
 #modal-message a {
     color: white;
-    transition: .1s ease;
 }
-#modal-message a:hover {
-    color: black;
+#modal-message a:after {
+    background: white;
 }
 
 #modal-message.hidden {
@@ -132,34 +170,43 @@ button:hover {
     z-index: 100;
     position: fixed;
     bottom: 1rem;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
 
-#arrow-scroll-down {
-    display: inline-block;
     opacity: 1;
     transform: translateY(0);
     pointer-events: all;
     transition: opacity .3s ease, transform .3s ease, pointer-events 0s .3s;
 }
-
-#arrow-scroll-down svg {
-    background-size: 30px 30px;
-    fill: black;
-    transition: fill, .1s ease;
-}
-
-#arrow-scroll-down:hover svg {
-    fill: rgb(220, 176, 136);
-}
-
-#arrow-scroll-down.hidden {
+#wrapper-arrow-scroll-down.hidden {
     opacity: 0;
     transform: translateY(-1rem);
     pointer-events: none;
+}
+
+#arrow-scroll-down {
+    display: inline-block;
+}
+
+#arrow-scroll-down svg {
+    pointer-events: none;
+    width: 48px;
+    height: 48px;
+    fill: black;
+    transform: translateY(0);
+    transition: .2s ease;
+}
+
+#arrow-scroll-down.focused svg {
+    fill: rgba(220, 176, 136, .8) !important;
+}
+
+
+#arrow-scroll-down:hover svg {
+    transform: translateY(.2rem);
+    fill: rgb(220, 176, 136);
 }
 
 
@@ -184,71 +231,64 @@ header.visible {
     pointer-events: all;
 }
 
-
-/* -------------------------------------------------- CONTENT
-*/
-
-
-section {
-    padding: 4rem 0;
-}
-
-#banner {
-    width: 100vw;
+#banner-clock {
+    width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-#banner #clock-wordmark {
+#banner-clock #clock-wordmark {
     position: absolute;
     width: 70%;
     max-width: 70%;
     max-height: 70%;
 }
-#banner #clock {
+#banner-clock #clock {
     width: 70%;
     max-width: 70%;
     max-height: 70%;
     transition: transform 0.5s cubic-bezier(.3,2,.3,.5);
 }
 
-#info {
-    width: calc(4*(100vw/6));
-    margin: 0 calc(100vw/6);
+/* -------------------------------------------------- CONTENT
+*/
+
+
+section {
+    width: 100%;
+    padding: 4rem 0;
+    margin: 0;
+}
+
+.info {
+    width: calc(4*(100%/6));
+    margin: 0 calc(100%/6);
     padding-top: 1.35rem;
 }
 
-#info h1 {
+.info h1 {
     visibility: hidden;
     font-size: 1.8rem;
     font-family: 'domaine', arial, sans-serif;
     font-weight: bold;
 }
 
-#info p {
+.info p {
     margin-top: 5.04rem;
     font-size: 1.8rem;
     font-family: 'domaine', arial, sans-serif;
 }
 
-#info p a:after {
-    content: '';
-    width: 100%;
-    height: 0.15rem;
-    margin-bottom: -0.15rem;
-    transform: translateY(-0.15em);
-    display: block;
-    background: black;
-
-    transition:
-            width 0.2s ease,
-            margin-left 0.2s ease;
+.banner-image {
+    margin-top: 2rem;
 }
-
-#info a:hover:after {
-    width: 0;
-    margin-left: 50%;
+.banner-image-wrapper {
+    padding: 0 3rem;
+}
+.banner-image img {
+    box-sizing: border-box;
+    width: 100%;
 }
 
 #bottle .slideshow {
@@ -261,7 +301,7 @@ section {
 
 #bottle .slideshow .slide {
     position: relative;
-    width: calc(5 * (100vw / 6));
+    width: calc(5 * (100vw/6));
 }
 
 #bottle .slideshow .slide img:hover {
@@ -269,10 +309,10 @@ section {
 }
 
 #bottle .slideshow .slide img {
-    width: 80%;
+    width: 80vw;
 }
 
-#bottle .slideshow .slide .caption {
+section .caption {
     position: relative;
     padding: 0.84rem calc(100vw/6);
     font-size: 1.2rem;
@@ -285,29 +325,32 @@ section {
 
 footer {
     float: left;
-    width: 100vw;
+    width: 100%;
     padding: 3rem 0;
-    margin-top: 2rem;
+    margin-top: 4rem;
     font-size: 1.2rem;
     background: rgb(220, 176, 136);
     color: white;
 }
 
 footer a {
+    font-style: normal;
+    position: relative;
     color: white;
     transition: .1s ease;
 }
-footer a:hover {
-    color: black;
+footer a:after{
+    background: white;
 }
 
 footer div {
-    width: calc(2*(100vw/6));
-    margin-left: calc(100vw/6);
+    width: calc(2*(100%/6));
+    margin-left: calc(100%/6);
     float: left;
 }
 
-footer div p {
+footer div div {
+    margin: 0;
     width: 100%;
     font-family: 'domaine', arial, sans-serif;
 }
@@ -322,24 +365,20 @@ footer div p {
         position: absolute;
     }
 
-    #info p, h1 {
+    .info p, h1 {
         padding: 0 1.5rem;
         width: 100%;
     }
 
-    #info h1 {
-        margin-left: 9rem;
-    }
-
     #bottle .slideshow .slide {
-        width: calc(5.5*(100vw/6));
+        width: calc(5.5*(100%/6));
     }
 
     #bottle .slideshow .slide img {
-        width: calc(5*(100vw/6));
+        width: calc(5*(100%/6));
     }
 
-    #bottle .slideshow .slide .caption {
+    section .caption {
         padding: 0.84rem 1.5rem;
     }
 
@@ -355,16 +394,16 @@ footer div p {
 
 @media only screen and (max-width: 500px) {
 
-    #info {
+    .info {
         padding-top: 8.91rem;
         margin: 0;
         width: 100%;
     }
 
-    #info h1 {
+    .info h1 {
         margin-left: 0;
     }
-    #info p {
+    .info p {
         margin-top: 2.52rem;
     }
 
