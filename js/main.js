@@ -35,13 +35,10 @@ function rotateClock() {
 }
 
 // modal-message
-var modalMessage = $('#modal-message')
-var closeModalMessage = $('#close-modal-message')
 function closeMessageModal() {
-    modalMessage.addClass('hidden')
+    $('#modal-message').addClass('hidden')
 }
 
-var scrolledDown = false;
 $(window).scroll(function() {
     var scrollY = $(window).scrollTop()
 
@@ -61,9 +58,8 @@ function showWordmark(scrollY) {
             header.toggleClass("visible")
         }
     } else {
-        if (scrolledDown) {
-            scrolledDown = false
-            header.toggleClass("visible")
+        if (arrowWrapper.hasClass('hidden')) {
+            arrowWrapper.removeClass('hidden')
         }
     }
 }
