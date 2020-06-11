@@ -13,7 +13,6 @@
 	<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-	<link rel="manifest" href="favicon/site.webmanifest">
 	<link rel="shortcut icon" href="favicon/favicon.ico">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="msapplication-config" content="favicon/browserconfig.xml">
@@ -26,8 +25,10 @@
 </head>
 
 <body>
-<header id="header">
-	<img alt="5b4-Logo" src="img/5b4-wordmark-black.svg">
+<header id="header-main">
+	<button type="button" onclick="scrollUp()">
+		<img alt="5b4-Logo" src="img/5b4-wordmark-black.svg">
+	</button>
 </header>
 
 <section id="banner-clock">
@@ -35,7 +36,7 @@
 	<img id="clock" alt="5b4-logo-circle" src="img/5b4-circle-black.svg">
 
 	<div id="wrapper-arrow-scroll-down">
-		<button id="arrow-scroll-down" onclick="scrollDown()">
+		<button type="button" id="arrow-scroll-down" onclick="scrollDown()">
 			<svg width="24" height="24" viewBox="0 0 24 24"><path d="M24 12c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12zm-17 1h4v-8h2v8h4l-5 6-5-6z"/></svg>
 		</button>
 	</div>
@@ -66,9 +67,9 @@
 
 <section class="banner-image">
 	<div class="banner-image-wrapper">
-		<img alt="5b4-mountains" src="img/thomas-sample.jpg">
+		<img alt="5b4-mountains" src="img/banner.jpg">
 	</div>
-	<p class="caption">Gegen Plastikverschmutzung hier und anderswo!</p>
+	<!--<p class="caption">Gegen Plastikverschmutzung hier und anderswo!</p>-->
 </section>
 
 

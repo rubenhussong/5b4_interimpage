@@ -221,13 +221,19 @@ header {
     z-index: 100;
     width: 6rem;
     margin: 1.5rem;
-
+}
+header button img, header a img {
+    width: 100%;
+    height: auto;
+}
+#header-main {
     opacity: 0;
     transform: translateY(-1rem);
     pointer-events: none;
     transition: opacity .3s ease, transform .3s ease, pointer-events 0s .3s;
 }
-header.visible {
+
+#header-main.visible {
     transform: translateY(0);
     opacity: 1;
     pointer-events: all;
@@ -304,21 +310,33 @@ section {
 }
 
 #bottle .slideshow .slide {
+    padding-left: 3rem;
     position: relative;
-    width: calc(5 * (100vw/6));
+    width: calc(5 * (100vw/6) - 6rem);
 }
 
 #bottle .slideshow .slide img:hover {
-    cursor: move;
+    cursor: grab;
 }
 
+#bottle .slideshow .slide img:active {
+    cursor: grabbing;
+}
 #bottle .slideshow .slide img {
-    width: 80vw;
+    width: 60vw;
+}
+
+#bottle .slideshow .slide .caption {
+    opacity: 0;
+    transition: .2s ease;
+}
+#bottle .slideshow .slide[tabindex="0"] .caption {
+    opacity: 1;
 }
 
 section .caption {
     position: relative;
-    padding: 0.84rem calc(100vw/6);
+    padding: 0.84rem calc(1 * (100vw/6) - 3rem);
     font-size: 1.2rem;
 }
 
@@ -407,12 +425,17 @@ footer div div {
         width: 100%;
     }
 
+    .banner-image-wrapper {
+        padding: 0;
+    }
+
     #bottle .slideshow .slide {
-        width: calc(5.5*(100vw/6));
+        padding-left: 0;
+        width: calc(5*(100vw/6));
     }
 
     #bottle .slideshow .slide img {
-        width: calc(5*(100vw/6));
+        width: calc(5*(100vw/6) - 3rem);
     }
 
     section .caption {
@@ -469,9 +492,5 @@ footer div div {
 
     section .caption {
         padding: 0.84rem 1.5rem;
-    }
-
-    .banner-image-wrapper {
-        padding: 0 1.5rem;
     }
 }

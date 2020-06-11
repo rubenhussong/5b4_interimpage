@@ -4,7 +4,9 @@ $(document).ready(function(){
         arrows: false,
         centerMode: false,
         variableWidth: true,
-        focusOnSelect: true
+        focusOnSelect: true,
+        cssEase: 'ease-out',
+        speed: 500,
     })
 
     // dragging class
@@ -49,9 +51,10 @@ $(window).scroll(function() {
     showArrow(scrollY)
 })
 
+// Shows word mark on main page dependent on scroll position
 function showWordmark(scrollY) {
     var height = $(window).height()
-    var header = $("#header")
+    var header = $("#header-main")
     if(scrollY >= height) {
         if (!header.hasClass('visible')) {
             header.addClass('visible')
@@ -63,6 +66,7 @@ function showWordmark(scrollY) {
     }
 }
 
+// Shows scroll arrow dependent on scroll position
 function showArrow(scrollY) {
     var arrowWrapper = $("#wrapper-arrow-scroll-down")
     if(scrollY >= 200) {
@@ -76,17 +80,23 @@ function showArrow(scrollY) {
     }
 }
 
-function scrollDown() {
-    $('body,html').animate({ scrollTop: $(window).height() }, 500);
+function scrollUp() {
+    $('body,html').animate({ scrollTop: 0 }, 500)
 }
 
+function scrollDown() {
+    $('body,html').animate({ scrollTop: $(window).height() }, 500)
+}
+
+var button = $(":button")
+
 // Button focus live
-$(":button").on('mousedown', function(evt) {
+button.on('mousedown', function(evt) {
     $('#' + evt.target.id).addClass("focused")
 })
-$(":button").on('mouseup', function(evt) {
+button.on('mouseup', function(evt) {
     $('#' + evt.target.id).removeClass("focused")
 })
-$(":button").on('mouseout', function(evt) {
+button.on('mouseout', function(evt) {
     $('#' + evt.target.id).removeClass("focused")
 })
