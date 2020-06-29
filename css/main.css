@@ -54,14 +54,6 @@ html {
   font-weight: normal;
   font-style: normal; }
 
-html p {
-  font-family: "domaine", arial, sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  text-transform: none;
-  letter-spacing: 0;
-  font-size: 1.25rem; }
-
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -76,6 +68,15 @@ body {
   font-style: normal;
   text-transform: none;
   letter-spacing: 0;
+  line-height: 1.7; }
+
+html {
+  font-family: "domaine", arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 1.25rem;
   line-height: 1.7; }
 
 a {
@@ -260,6 +261,9 @@ section {
   section.info {
     width: calc(4*(100%/6));
     margin: 0 calc(100%/6); }
+    section.info p {
+      font-size: 1.25rem;
+      line-height: 1.7; }
     section.info a:after {
       height: 3px;
       margin-bottom: -3px;
@@ -288,6 +292,7 @@ section {
           margin-left: 0; } }
   section#donation-banner {
     width: 100%;
+    padding: 6rem 3rem;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -325,6 +330,8 @@ section {
   section.banner-image img {
     box-sizing: border-box;
     width: 100%; }
+  section#product-details {
+    padding-top: 0; }
 
 button {
   border: none;
@@ -390,22 +397,45 @@ ul {
     font-style: normal;
     text-transform: none;
     letter-spacing: 0;
-    color: black;
     font-size: 1.25rem;
     margin-bottom: 2.125rem; }
-  ul.bullet-list li::before {
-    content: "↦";
-    /* Add content: \2022 is the CSS Code/unicode for a bullet */
-    font-family: "vg5000", Arial, sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #dcb088;
-    display: inline-block;
-    /* Needed to add space between the bullet and the text */
-    width: 1.4rem;
-    /* Also needed for space (tweak if needed) */ }
+    ul.bullet-list li::before {
+      content: "↦";
+      /* Add content: \2022 is the CSS Code/unicode for a bullet */
+      font-family: "vg5000", Arial, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #dcb088;
+      display: inline-block;
+      /* Needed to add space between the bullet and the text */
+      width: 1.2rem;
+      /* Also needed for space (tweak if needed) */ }
+  ul.detail-list {
+    width: 100%;
+    height: 6.8rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; }
+    ul.detail-list li {
+      font-size: 1em;
+      width: 50%; }
+      ul.detail-list li::before {
+        content: "→";
+        font-family: "vg5000", Arial, sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #dcb088;
+        display: inline-block;
+        width: 1.2rem; }
+    @media (max-width: 1200px) {
+      ul.detail-list {
+        height: auto; }
+        ul.detail-list li {
+          width: 100%; } }
 
 #bottle .slideshow {
   position: relative;

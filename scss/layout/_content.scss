@@ -2,10 +2,15 @@ section {
     width: 100%;
     padding: 6rem 0;
     margin: 0;
-    
+
     &.info {
         width: calc(4*(100%/6));
         margin: 0 calc(100%/6);
+
+        p {
+          font-size: $fontsize-m;
+          line-height: 1.7;
+        }
 
         a:after {
             height: 3px;
@@ -19,7 +24,7 @@ section {
             @include typo-serif(bold, normal);
         }
 
-        
+
         @include max-width('medium') {
             p,
             h1 {
@@ -41,6 +46,7 @@ section {
 
     &#donation-banner {
         width: 100%;
+        padding: 6rem 3rem;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
@@ -60,7 +66,7 @@ section {
                     max-width: 300px;
                 }
             }
-            
+
             #donation-counter-amount {
                 @include typo-sans;
                 line-height: 1;
@@ -84,5 +90,9 @@ section {
             box-sizing: border-box;
             width: 100%;
         }
+    }
+
+    &#product-details {
+      padding-top: 0;
     }
 }

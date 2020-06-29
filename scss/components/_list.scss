@@ -1,23 +1,50 @@
 ul {
     list-style: none; /* Remove default bullets */
-    
+
     &.bullet-list {
 
         li {
             @include typo-serif(normal, normal);
-            color: $color-dark;
             font-size: $fontsize-m;
             margin-bottom: 1.7 * $fontsize-m;
+
+            &::before {
+                content: "↦";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+                @include typo-sans;
+                color: $color-accent;
+
+                display: inline-block; /* Needed to add space between the bullet and the text */
+                width: 1.2rem; /* Also needed for space (tweak if needed) */
+            }
         }
 
-        li::before {
-            content: "↦";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-            @include typo-sans;
-            color: $color-accent;
-            
-            display: inline-block; /* Needed to add space between the bullet and the text */
-            width: 1.4rem; /* Also needed for space (tweak if needed) */
-        }
     }
-      
+
+    &.detail-list {
+      width: 100%;
+      height: 6.8rem;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+      li {
+        font-size: $fontsize-s;
+        width: 50%;
+
+        &::before {
+          content: "→";
+          @include typo-sans;
+          color: $color-accent;
+
+          display: inline-block;
+          width: 1.2rem;
+        }
+      }
+
+      @include max-width('large'){
+        li {width: 100%;
+        }
+        height: auto;
+      }
+    }
 }
