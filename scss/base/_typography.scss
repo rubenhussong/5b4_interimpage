@@ -1,0 +1,78 @@
+// ================================================== F L U I D   T Y P O G R A P H Y
+
+/* Define the mixin */
+@mixin fluid-typography($minFont,$maxFont,$minBreakpoint,$maxBreakpoint) {
+  
+    /* Define variable for media query */
+    $maxLessOne: $maxBreakpoint - 1;
+    
+    /* Define variable for fallback */
+    $avg: ($maxFont + $minFont) / 2;
+   
+    /* Base font size */
+    font-size: #{$minFont}px;
+    
+    @media (min-width: #{$minBreakpoint}px) and (max-width: #{$maxLessOne}px) {
+      
+      /* Adds a fallback for unsupported browsers */
+      font-size: #{$avg}px;
+        
+      /* The fluid typography magic 🌟  */
+      font-size: calc(#{$minFont}px + (#{$maxFont} - #{$minFont}) * (100vw - #{$minBreakpoint}px) / (#{$maxBreakpoint} - #{$minBreakpoint}))
+    }
+    
+    @media (min-width: #{$maxBreakpoint}px) {
+      font-size: #{$maxFont}px;
+    }
+  }
+  
+  /* Generate the CSS */
+  html {
+    
+    /* Just add your arguments */
+    @include fluid-typography(10,24,320,1600);
+  }
+
+// ================================================== F O N T S
+@font-face {
+    font-family: 'domaine';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../font/DomaineText-Regular.otf');
+}
+
+@font-face {
+    font-family: 'domaine';
+    font-weight: normal;
+    font-style: italic;
+    src: url('../font/DomaineText-RegularItalic.otf');
+}
+
+@font-face {
+    font-family: 'domaine';
+    font-weight: bold;
+    font-style: normal;
+    src: url('../font/DomaineText-Bold.otf');
+}
+
+@font-face {
+    font-family: 'domaine';
+    font-weight: bold;
+    font-style: italic;
+    src: url('../font/DomaineText-BoldItalic.otf');
+}
+
+@font-face {
+    font-family: 'vg5000';
+    src: url('../font/vg5000-regular_web.eot');
+    src: url('../font/vg5000-regular_web.eot?#iefix') format('embedded-opentype'), url('../font/vg5000-regular_web.woff2') format('woff2'), url('../font/vg5000-regular_web.woff') format('woff'), url('../font/vg5000-regular_web.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+  p {
+    @include typo-serif(normal, normal);
+    font-size: $fontsize-m;
+  }
+}
