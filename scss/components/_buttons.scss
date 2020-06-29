@@ -1,0 +1,26 @@
+button {
+    border: none;
+    cursor: pointer;
+    background: none;
+    box-sizing: border-box;
+    
+    &:focus {
+        outline: none;
+    }
+    &.button {
+        @include typo-sans;
+        color: $color-light;
+
+        padding: 6px 12px;
+        border: 2px solid $color-light;
+        border-radius: 10px;
+        transition: .2s ease;
+        &.focused {
+            background-color: rgba($color-light, .8) !important;
+        }
+        &.hover {
+            background-color: $color-light;
+            color: $color-accent;
+        }
+    }
+}

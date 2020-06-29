@@ -1,0 +1,47 @@
+footer {
+    float: left;
+    width: 100%;
+    padding: 3rem 0;
+    margin-top: 6rem;
+    
+    font-size: $fontsize-s;
+    background: $color-accent;
+    color: $color-light;
+    a {
+        font-style: normal;
+        position: relative;
+        color: $color-light;
+        transition: .1s ease;
+        &:after{
+            background: $color-light;
+        }
+    }
+    div {
+        width: calc(2*(100%/6));
+        margin-left: calc(100%/6);
+        float: left;
+        div {
+            margin: 0;
+            width: 100%;
+            @include typo-serif(normal, normal);
+        }
+    }
+    @include max-width('medium') {
+        div {
+            margin: 0;
+            &.left {
+                width: 70%;
+            }
+            &.right {
+                width: 30%;
+            }
+        }
+    }
+    @include max-width('small') {
+        div {
+            float: none;
+            width: 100%;
+            margin-top: 1.68rem;
+        }
+    }
+}

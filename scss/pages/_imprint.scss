@@ -1,0 +1,29 @@
+.imprint {
+    width: calc(4*(100%/6));
+    margin: 0 auto;
+    padding-top: 8rem;
+    line-height: 1.5;
+    p {
+        margin: 0.75em 0;
+    }
+    h1 {
+        font-size: $fontsize-xl;
+        letter-spacing: -0.05rem;
+        display: block;
+    }
+    h2,
+    h3 {
+        margin: 1.5em 0 .5em;
+    }
+    h2 {
+        font-size: $fontsize-l;
+        @include typo-serif(normal, normal);
+    }
+    h3 {
+        font-size: $fontsize-m;
+        @include typo-sans;
+    }
+    ul {
+        list-style: none;
+    }
+}

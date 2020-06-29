@@ -1,0 +1,38 @@
+#wrapper-arrow-scroll-down {
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+    transition: opacity .3s ease, transform .3s ease, pointer-events 0s .3s;
+
+    &.hidden {
+        opacity: 0;
+        transform: translateY(-1rem);
+        pointer-events: none;
+    }
+    #arrow-scroll-down {
+        display: inline-block;
+        svg {
+            pointer-events: none;
+            width: $fontsize-m;
+            height: 1.5rem;
+            fill: $color-dark;
+            transform: translateY(0);
+            transition: .2s ease;
+        }
+        &.focused svg {
+            fill: rgba($color-accent, .8) !important;
+        }
+        &:hover svg {
+            transform: translateY(.2rem);
+            fill: $color-accent;
+        }
+    }
+}

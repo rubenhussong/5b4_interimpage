@@ -1,0 +1,52 @@
+#bottle .slideshow {
+    position: relative;
+    visibility: hidden;
+
+    &.slick-initialized {
+        visibility: visible;
+    }
+    .slide {
+        padding-left: 3rem;
+        position: relative;
+        width: calc(5 * (100vw/6) - 6rem);
+
+        img {
+            width: 60vw;
+            &:hover {
+                cursor: grab;
+            }
+            &:active {
+                cursor: grabbing;
+            }
+        }
+        .caption {
+            position: relative;
+            padding: 0.84rem calc(1 * (100vw/6) - 3rem);
+            font-size: $fontsize-xs;
+            opacity: 0;
+            transition: .2s ease;
+        }
+        &[tabindex="0"] .caption {
+            opacity: 1;
+        }
+        @include max-width('medium') {
+            padding-left: 0;
+            width: calc(5*(100vw/6));
+            img {
+                width: calc(5*(100vw/6) - 3rem);
+            }
+            .caption {
+                padding: 0.84rem 3rem;
+            }
+        }
+        @include max-width('small') {
+            .caption {
+                padding: 0.84rem 1.5rem;
+            }
+        }
+    }
+}
+
+.slick-slide {
+    outline: none
+}

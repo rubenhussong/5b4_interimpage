@@ -1,0 +1,23 @@
+ul {
+    list-style: none; /* Remove default bullets */
+    
+    &.bullet-list {
+
+        li {
+            @include typo-serif(normal, normal);
+            color: $color-dark;
+            font-size: $fontsize-m;
+            margin-bottom: 1.7 * $fontsize-m;
+        }
+
+        li::before {
+            content: "↦";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+            @include typo-sans;
+            color: $color-accent;
+            
+            display: inline-block; /* Needed to add space between the bullet and the text */
+            width: 1.4rem; /* Also needed for space (tweak if needed) */
+        }
+    }
+      
+}

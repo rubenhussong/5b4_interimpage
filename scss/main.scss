@@ -1,0 +1,40 @@
+@charset 'utf-8';
+
+@import 
+  'abstracts/variables',
+  'abstracts/functions',
+  'abstracts/breakpoints',
+  'abstracts/mixins';
+
+/* 
+@import 
+  'vendors/...
+  
+  evtl. Slick-Slider hier;
+*/
+
+@import 
+  'base/typography',
+  'base/base',
+  'base/reset';
+
+@import 
+  'layout/grid',
+  'layout/header',
+  'layout/footer',
+  'layout/content';
+
+@import 
+  'components/buttons',
+  'components/scroll-arrow',
+  'components/list',
+  'components/slider';
+
+@import
+  'pages/home',
+  'pages/imprint';
+
+/* 
+@import 
+  'themes/...
+*/

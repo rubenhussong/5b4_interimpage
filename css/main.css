@@ -1,0 +1,482 @@
+@charset "UTF-8";
+/* 
+@import 
+  'vendors/...
+  
+  evtl. Slick-Slider hier;
+*/
+/* Define the mixin */
+/* Generate the CSS */
+html {
+  /* Just add your arguments */
+  /* Define variable for media query */
+  /* Define variable for fallback */
+  /* Base font size */
+  font-size: 10px; }
+  @media (min-width: 320px) and (max-width: 1599px) {
+    html {
+      /* Adds a fallback for unsupported browsers */
+      font-size: 17px;
+      /* The fluid typography magic 🌟  */
+      font-size: calc(10px + (24 - 10) * (100vw - 320px) / (1600 - 320)); } }
+  @media (min-width: 1600px) {
+    html {
+      font-size: 24px; } }
+
+@font-face {
+  font-family: 'domaine';
+  font-weight: normal;
+  font-style: normal;
+  src: url("../font/DomaineText-Regular.otf"); }
+
+@font-face {
+  font-family: 'domaine';
+  font-weight: normal;
+  font-style: italic;
+  src: url("../font/DomaineText-RegularItalic.otf"); }
+
+@font-face {
+  font-family: 'domaine';
+  font-weight: bold;
+  font-style: normal;
+  src: url("../font/DomaineText-Bold.otf"); }
+
+@font-face {
+  font-family: 'domaine';
+  font-weight: bold;
+  font-style: italic;
+  src: url("../font/DomaineText-BoldItalic.otf"); }
+
+@font-face {
+  font-family: 'vg5000';
+  src: url("../font/vg5000-regular_web.eot");
+  src: url("../font/vg5000-regular_web.eot?#iefix") format("embedded-opentype"), url("../font/vg5000-regular_web.woff2") format("woff2"), url("../font/vg5000-regular_web.woff") format("woff"), url("../font/vg5000-regular_web.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+html p {
+  font-family: "domaine", arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 1.25rem; }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  color: black;
+  font-family: "domaine", arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.7; }
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  color: black;
+  font-family: "domaine", arial, sans-serif;
+  font-weight: normal;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0; }
+  a:after {
+    content: '';
+    width: 0;
+    height: 2px;
+    margin-bottom: -2px;
+    transform: translateY(-0.2em);
+    display: block;
+    transition: width 0.2s ease, margin-left 0.2s ease; }
+  a:hover:after {
+    width: 100%; }
+
+::selection {
+  background: #dcb088;
+  color: white; }
+
+.colored-background ::selection {
+  background: black;
+  color: #dcb088; }
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0; }
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0; }
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5; }
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none; }
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto; }
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block; }
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em; }
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit; }
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important; } }
+
+header {
+  position: fixed;
+  z-index: 100;
+  width: 5rem;
+  margin: 1.5rem; }
+  header button img,
+  header a img {
+    width: 100%;
+    height: auto; }
+  header#header-main {
+    opacity: 0;
+    transform: translateY(-1rem);
+    pointer-events: none;
+    transition: opacity .3s ease, transform .3s ease, pointer-events 0s .3s; }
+    header#header-main.visible {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all; }
+  @media (max-width: 800px) {
+    header {
+      margin-left: calc(50% - 3rem); } }
+
+#banner-clock {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  #banner-clock #clock-wordmark {
+    position: absolute;
+    width: 70%;
+    max-width: 70%;
+    max-height: 70%; }
+  #banner-clock #clock {
+    position: absolute;
+    width: 70%;
+    max-width: 70%;
+    max-height: 70%;
+    transition: transform 0.5s cubic-bezier(0.3, 2, 0.3, 0.5); }
+
+footer {
+  float: left;
+  width: 100%;
+  padding: 3rem 0;
+  margin-top: 6rem;
+  font-size: 1em;
+  background: #dcb088;
+  color: white; }
+  footer a {
+    font-style: normal;
+    position: relative;
+    color: white;
+    transition: .1s ease; }
+    footer a:after {
+      background: white; }
+  footer div {
+    width: calc(2*(100%/6));
+    margin-left: calc(100%/6);
+    float: left; }
+    footer div div {
+      margin: 0;
+      width: 100%;
+      font-family: "domaine", arial, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-transform: none;
+      letter-spacing: 0; }
+  @media (max-width: 800px) {
+    footer div {
+      margin: 0; }
+      footer div.left {
+        width: 70%; }
+      footer div.right {
+        width: 30%; } }
+  @media (max-width: 500px) {
+    footer div {
+      float: none;
+      width: 100%;
+      margin-top: 1.68rem; } }
+
+section {
+  width: 100%;
+  padding: 6rem 0;
+  margin: 0; }
+  section.info {
+    width: calc(4*(100%/6));
+    margin: 0 calc(100%/6); }
+    section.info a:after {
+      height: 3px;
+      margin-bottom: -3px;
+      transform: translateY(-0.2em);
+      background: #dcb088; }
+    section.info h1 {
+      visibility: hidden;
+      font-size: 1.75rem;
+      font-family: "domaine", arial, sans-serif;
+      font-weight: bold;
+      font-style: normal;
+      text-transform: none;
+      letter-spacing: 0; }
+    @media (max-width: 800px) {
+      section.info p,
+      section.info h1 {
+        padding: 0 1.5rem;
+        width: 100%; } }
+    @media (max-width: 500px) {
+      section.info {
+        margin: 0;
+        width: 100%; }
+        section.info p {
+          margin-top: 2.52rem; }
+        section.info h1 {
+          margin-left: 0; } }
+  section#donation-banner {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center; }
+    section#donation-banner div {
+      width: 50%;
+      text-align: center; }
+      section#donation-banner div#wrapper-oeoo-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        section#donation-banner div#wrapper-oeoo-logo img {
+          width: 60%;
+          max-width: 300px; }
+      section#donation-banner div #donation-counter-amount {
+        font-family: "vg5000", Arial, sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        line-height: 1;
+        font-size: 2.5rem; }
+      section#donation-banner div #donation-counter-donated {
+        font-family: "domaine", arial, sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        text-transform: none;
+        letter-spacing: 0;
+        font-size: 0.75rem; }
+  section.banner-image .banner-image-wrapper {
+    padding: 0 3rem; }
+    @media (max-width: 800px) {
+      section.banner-image .banner-image-wrapper {
+        padding: 0; } }
+  section.banner-image img {
+    box-sizing: border-box;
+    width: 100%; }
+
+button {
+  border: none;
+  cursor: pointer;
+  background: none;
+  box-sizing: border-box; }
+  button:focus {
+    outline: none; }
+  button.button {
+    font-family: "vg5000", Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: white;
+    padding: 6px 12px;
+    border: 2px solid white;
+    border-radius: 10px;
+    transition: .2s ease; }
+    button.button.focused {
+      background-color: rgba(255, 255, 255, 0.8) !important; }
+    button.button.hover {
+      background-color: white;
+      color: #dcb088; }
+
+#wrapper-arrow-scroll-down {
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+  transition: opacity .3s ease, transform .3s ease, pointer-events 0s .3s; }
+  #wrapper-arrow-scroll-down.hidden {
+    opacity: 0;
+    transform: translateY(-1rem);
+    pointer-events: none; }
+  #wrapper-arrow-scroll-down #arrow-scroll-down {
+    display: inline-block; }
+    #wrapper-arrow-scroll-down #arrow-scroll-down svg {
+      pointer-events: none;
+      width: 1.25rem;
+      height: 1.5rem;
+      fill: black;
+      transform: translateY(0);
+      transition: .2s ease; }
+    #wrapper-arrow-scroll-down #arrow-scroll-down.focused svg {
+      fill: rgba(220, 176, 136, 0.8) !important; }
+    #wrapper-arrow-scroll-down #arrow-scroll-down:hover svg {
+      transform: translateY(0.2rem);
+      fill: #dcb088; }
+
+ul {
+  list-style: none;
+  /* Remove default bullets */ }
+  ul.bullet-list li {
+    font-family: "domaine", arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-transform: none;
+    letter-spacing: 0;
+    color: black;
+    font-size: 1.25rem;
+    margin-bottom: 2.125rem; }
+  ul.bullet-list li::before {
+    content: "↦";
+    /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    font-family: "vg5000", Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #dcb088;
+    display: inline-block;
+    /* Needed to add space between the bullet and the text */
+    width: 1.4rem;
+    /* Also needed for space (tweak if needed) */ }
+
+#bottle .slideshow {
+  position: relative;
+  visibility: hidden; }
+  #bottle .slideshow.slick-initialized {
+    visibility: visible; }
+  #bottle .slideshow .slide {
+    padding-left: 3rem;
+    position: relative;
+    width: calc(5 * (100vw/6) - 6rem); }
+    #bottle .slideshow .slide img {
+      width: 60vw; }
+      #bottle .slideshow .slide img:hover {
+        cursor: grab; }
+      #bottle .slideshow .slide img:active {
+        cursor: grabbing; }
+    #bottle .slideshow .slide .caption {
+      position: relative;
+      padding: 0.84rem calc(1 * (100vw/6) - 3rem);
+      font-size: 0.75rem;
+      opacity: 0;
+      transition: .2s ease; }
+    #bottle .slideshow .slide[tabindex="0"] .caption {
+      opacity: 1; }
+    @media (max-width: 800px) {
+      #bottle .slideshow .slide {
+        padding-left: 0;
+        width: calc(5*(100vw/6)); }
+        #bottle .slideshow .slide img {
+          width: calc(5*(100vw/6) - 3rem); }
+        #bottle .slideshow .slide .caption {
+          padding: 0.84rem 3rem; } }
+    @media (max-width: 500px) {
+      #bottle .slideshow .slide .caption {
+        padding: 0.84rem 1.5rem; } }
+
+.slick-slide {
+  outline: none; }
+
+.imprint {
+  width: calc(4*(100%/6));
+  margin: 0 auto;
+  padding-top: 8rem;
+  line-height: 1.5; }
+  .imprint p {
+    margin: 0.75em 0; }
+  .imprint h1 {
+    font-size: 1.75rem;
+    letter-spacing: -0.05rem;
+    display: block; }
+  .imprint h2,
+  .imprint h3 {
+    margin: 1.5em 0 .5em; }
+  .imprint h2 {
+    font-size: 1.5rem;
+    font-family: "domaine", arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-transform: none;
+    letter-spacing: 0; }
+  .imprint h3 {
+    font-size: 1.25rem;
+    font-family: "vg5000", Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.1em; }
+  .imprint ul {
+    list-style: none; }
+
+/* 
+@import 
+  'themes/...
+*/
