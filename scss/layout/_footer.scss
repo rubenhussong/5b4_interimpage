@@ -27,6 +27,7 @@ footer {
         }
     }
     @include max-width('medium') {
+        padding: 2rem 1.5rem;
         div {
             margin: 0;
             &.left {

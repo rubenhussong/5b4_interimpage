@@ -10,7 +10,7 @@ ul {
 
             &::before {
                 content: "↦";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-                @include typo-sans;
+                @include typo-symbols;
                 color: $color-accent;
 
                 display: inline-block; /* Needed to add space between the bullet and the text */
@@ -33,7 +33,7 @@ ul {
 
         &::before {
           content: "→";
-          @include typo-sans;
+          @include typo-symbols;
           color: $color-accent;
 
           display: inline-block;

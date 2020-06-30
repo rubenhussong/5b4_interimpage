@@ -13,22 +13,13 @@ section {
         }
 
         a:after {
-            height: 3px;
-            margin-bottom: -3px;
-            transform: translateY(-0.2em);
             background: rgb(220, 176, 136);
         }
-        h1 {
-            visibility: hidden;
-            font-size: $fontsize-xl;
-            @include typo-serif(bold, normal);
-        }
-
 
         @include max-width('medium') {
+            padding: 0 1.5rem;
             p,
             h1 {
-                padding: 0 1.5rem;
                 width: 100%;
             }
         }
@@ -61,20 +52,34 @@ section {
                 justify-content: center;
                 align-items: center;
 
-                img {
+                a {
                     width: 60%;
                     max-width: 300px;
+                    margin: 0;
+                    padding: 0;
+                    img {
+                        width: 100%;
+                    }
                 }
             }
 
             #donation-counter-amount {
-                @include typo-sans;
+                @include typo-symbols;
+                text-transform: lowercase;
                 line-height: 1;
                 font-size: $fontsize-xxl;
             }
             #donation-counter-donated {
                 @include typo-serif(normal, normal);
                 font-size: $fontsize-xs;
+            }
+        }
+
+        @include max-width('small') {
+            flex-direction: column;
+            div {
+                margin: 2rem 0;
+                width: 100%;
             }
         }
     }

@@ -1,6 +1,7 @@
 // F O N T S
 $font-family-serif: 'domaine', arial, sans-serif;
 $font-family-sans: 'vg5000', Arial, sans-serif;
+$font-family-symbols: 'symbols', Arial, sans-serif;
 
 @mixin typo-serif($font-weight, $font-style) {
     font-family: $font-family-serif;
@@ -12,6 +13,14 @@ $font-family-sans: 'vg5000', Arial, sans-serif;
 
 @mixin typo-sans {
     font-family: $font-family-sans;
+    font-weight: normal;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+@mixin typo-symbols {
+    font-family: $font-family-symbols;
     font-weight: normal;
     font-style: normal;
     text-transform: uppercase;
