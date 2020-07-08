@@ -498,40 +498,43 @@ ul {
     opacity: 1;
     transform: translateY(0) scale(1); }
 
-#bottle .slideshow {
+.slideshow-wrapper {
+  overflow: visible; }
+
+.slideshow-wrapper .slideshow {
   position: relative;
   visibility: hidden; }
-  #bottle .slideshow.slick-initialized {
+  .slideshow-wrapper .slideshow.slick-initialized {
     visibility: visible; }
-  #bottle .slideshow .slide {
+  .slideshow-wrapper .slideshow .slide {
     padding-left: 3rem;
     position: relative;
     width: calc(5 * (100vw/6) - 6rem); }
-    #bottle .slideshow .slide img {
+    .slideshow-wrapper .slideshow .slide img {
       max-width: 60vw;
       max-height: calc(100vh - 6rem); }
-      #bottle .slideshow .slide img:hover {
+      .slideshow-wrapper .slideshow .slide img:hover {
         cursor: grab; }
-      #bottle .slideshow .slide img:active {
+      .slideshow-wrapper .slideshow .slide img:active {
         cursor: grabbing; }
-    #bottle .slideshow .slide .caption {
+    .slideshow-wrapper .slideshow .slide .caption {
       position: relative;
       padding: 0.84rem calc(1 * (100vw/6) - 3rem);
       font-size: 0.75rem;
       opacity: 0;
       transition: .2s ease; }
-    #bottle .slideshow .slide[tabindex="0"] .caption {
+    .slideshow-wrapper .slideshow .slide[tabindex="0"] .caption {
       opacity: 1; }
     @media (max-width: 800px) {
-      #bottle .slideshow .slide {
+      .slideshow-wrapper .slideshow .slide {
         padding-left: 0;
         width: calc(5*(100vw/6)); }
-        #bottle .slideshow .slide img {
+        .slideshow-wrapper .slideshow .slide img {
           width: calc(5*(100vw/6) - 3rem); }
-        #bottle .slideshow .slide .caption {
+        .slideshow-wrapper .slideshow .slide .caption {
           padding: 0.84rem 3rem; } }
     @media (max-width: 500px) {
-      #bottle .slideshow .slide .caption {
+      .slideshow-wrapper .slideshow .slide .caption {
         padding: 0.84rem 1.5rem; } }
 
 .slick-slide {

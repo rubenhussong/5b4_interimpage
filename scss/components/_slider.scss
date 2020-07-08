@@ -1,4 +1,8 @@
-#bottle .slideshow {
+.slideshow-wrapper {
+    overflow: visible;
+}
+
+.slideshow-wrapper .slideshow {
     position: relative;
     visibility: hidden;
 
