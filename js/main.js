@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
     var slideshow = $('.slideshow')
     slideshow.slick({
         arrows: false,
@@ -10,11 +10,11 @@ $(document).ready(function(){
     })
 
     // dragging class
-    slideshow.on('mousedown', function(event) {
+    slideshow.on('mousedown', function (event) {
         $(event.currentTarget).find('.slick-list').addClass('is-dragging')
     })
 
-    slideshow.on('mouseup', function(event) {
+    slideshow.on('mouseup', function (event) {
         $(event.currentTarget).find('.slick-list').removeClass('is-dragging')
     })
 
@@ -41,7 +41,7 @@ function closeMessageModal() {
     $('#modal-message').addClass('hidden')
 }
 
-$(window).scroll(function() {
+$(window).scroll(function () {
     var scrollY = $(window).scrollTop()
 
     // Wordmark fade
@@ -55,7 +55,7 @@ $(window).scroll(function() {
 function showWordmark(scrollY) {
     var height = $(window).height()
     var header = $("#header-main")
-    if(scrollY >= height) {
+    if (scrollY >= height) {
         if (!header.hasClass('visible')) {
             header.addClass('visible')
         }
@@ -69,7 +69,7 @@ function showWordmark(scrollY) {
 // Shows scroll arrow dependent on scroll position
 function showArrow(scrollY) {
     var arrowWrapper = $("#wrapper-arrow-scroll-down")
-    if(scrollY >= 200) {
+    if (scrollY >= 200) {
         if (!arrowWrapper.hasClass('hidden')) {
             arrowWrapper.addClass('hidden')
         }
@@ -86,4 +86,50 @@ function scrollUp() {
 
 function scrollDown() {
     $('body,html').animate({ scrollTop: $(window).height() }, 500)
+}
+
+
+// ================================================== S C R O L L   A N I M A T I O N S
+
+window.addEventListener('scroll', function () {
+    console.log("Scrollin'")
+})
+
+var scroll = window.requestAnimationFrame ||
+    function (callback) { window.setTimeout(callback, 1000 / 60) }
+
+var elementsToShow = document.querySelectorAll('.show-on-scroll')
+
+function loop() {
+
+    elementsToShow.forEach(function (element) {
+        if (isElementInViewport(element)) {
+            element.classList.add('is-visible')
+        } else {
+            element.classList.remove('is-visible')
+        }
+    })
+
+    scroll(loop)
+}
+
+loop();
+
+// Helper function from: http://stackoverflow.com/a/7557433/274826
+function isElementInViewport(el) {
+    // special bonus for those using jQuery
+    if (typeof jQuery === "function" && el instanceof jQuery) {
+        el = el[0];
+    }
+    var rect = el.getBoundingClientRect();
+    return (
+        (rect.top <= 0
+            && rect.bottom >= 0)
+        ||
+        (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight))
+        ||
+        (rect.top >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+    );
 }

@@ -480,6 +480,14 @@ ul {
         ul.detail-list li {
           width: 100%; } }
 
+.show-on-scroll {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: .3s ease; }
+  .show-on-scroll.is-visible {
+    opacity: 1;
+    transform: scale(1); }
+
 #bottle .slideshow {
   position: relative;
   visibility: hidden; }
