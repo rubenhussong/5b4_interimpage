@@ -298,28 +298,35 @@ section {
           margin-top: 2.52rem; }
         section.info h1 {
           margin-left: 0; } }
-  section#donation-banner {
+  section.section-two-columns {
     width: 100%;
     padding: 6rem 3rem;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center; }
-    section#donation-banner div {
-      width: 50%;
+    section.section-two-columns div {
+      width: 50%; }
+    @media (max-width: 500px) {
+      section.section-two-columns {
+        flex-direction: column; }
+        section.section-two-columns div {
+          margin: 2rem 0;
+          width: 100%; } }
+    section.section-two-columns#donation-banner #wrapper-oeoo-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      section.section-two-columns#donation-banner #wrapper-oeoo-logo a {
+        width: 60%;
+        max-width: 300px;
+        margin: 0;
+        padding: 0; }
+        section.section-two-columns#donation-banner #wrapper-oeoo-logo a img {
+          width: 100%; }
+    section.section-two-columns#donation-banner #wrapper-donation-counter {
       text-align: center; }
-      section#donation-banner div#wrapper-oeoo-logo {
-        display: flex;
-        justify-content: center;
-        align-items: center; }
-        section#donation-banner div#wrapper-oeoo-logo a {
-          width: 60%;
-          max-width: 300px;
-          margin: 0;
-          padding: 0; }
-          section#donation-banner div#wrapper-oeoo-logo a img {
-            width: 100%; }
-      section#donation-banner div #donation-counter-amount {
+      section.section-two-columns#donation-banner #wrapper-donation-counter #donation-counter-amount {
         font-family: "symbols", Arial, sans-serif;
         font-weight: normal;
         font-style: normal;
@@ -328,19 +335,26 @@ section {
         text-transform: lowercase;
         line-height: 1;
         font-size: 2.5rem; }
-      section#donation-banner div #donation-counter-donated {
+      section.section-two-columns#donation-banner #wrapper-donation-counter #donation-counter-donated {
         font-family: "domaine", arial, sans-serif;
         font-weight: normal;
         font-style: normal;
         text-transform: none;
         letter-spacing: 0;
         font-size: 0.75rem; }
-    @media (max-width: 500px) {
-      section#donation-banner {
-        flex-direction: column; }
-        section#donation-banner div {
-          margin: 2rem 0;
-          width: 100%; } }
+    section.section-two-columns#product-details {
+      padding-top: 0;
+      display: flex;
+      flex-direction: row; }
+      section.section-two-columns#product-details ul {
+        padding-left: calc((100vw/6) - 3.5rem); }
+      section.section-two-columns#product-details .detail-icons {
+        display: flex;
+        flex-direction: column;
+        align-items: center; }
+        section.section-two-columns#product-details .detail-icons .detail-icon {
+          width: 5rem;
+          margin: .75rem; }
   section.banner-image .banner-image-wrapper {
     padding: 0 3rem; }
     @media (max-width: 800px) {
@@ -349,15 +363,6 @@ section {
   section.banner-image img {
     box-sizing: border-box;
     width: 100%; }
-  section#product-details {
-    padding-top: 0; }
-  section#product-details .detail-icons {
-    width: 100%;
-    display: flex;
-    flex-direction: row; }
-    section#product-details .detail-icons .detail-icon {
-      width: 5rem;
-      margin: 1rem; }
 
 button {
   border: none;
@@ -384,6 +389,12 @@ button {
       color: #dcb088; }
 
 #wrapper-arrow-scroll-down {
+  font-family: "symbols", Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 1.75rem;
   z-index: 100;
   position: fixed;
   width: 100%;
@@ -400,19 +411,25 @@ button {
     transform: translateY(-1rem);
     pointer-events: none; }
   #wrapper-arrow-scroll-down #arrow-scroll-down {
-    display: inline-block; }
-    #wrapper-arrow-scroll-down #arrow-scroll-down svg {
-      pointer-events: none;
-      width: 1.25rem;
-      height: 1.5rem;
-      fill: black;
-      transform: translateY(0);
-      transition: .2s ease; }
-    #wrapper-arrow-scroll-down #arrow-scroll-down.focused svg {
-      fill: rgba(220, 176, 136, 0.8) !important; }
-    #wrapper-arrow-scroll-down #arrow-scroll-down:hover svg {
-      transform: translateY(0.2rem);
-      fill: #dcb088; }
+    text-align: center; }
+    #wrapper-arrow-scroll-down #arrow-scroll-down p {
+      color: black;
+      border: 3px solid black;
+      background: white;
+      width: 2.625rem;
+      height: 2.625rem;
+      border-radius: 50%;
+      transition: .3s ease; }
+      #wrapper-arrow-scroll-down #arrow-scroll-down p span {
+        transform: translateY(-0.16rem);
+        display: inline-block; }
+    #wrapper-arrow-scroll-down #arrow-scroll-down:hover p {
+      color: black;
+      background: #dcb088; }
+    #wrapper-arrow-scroll-down #arrow-scroll-down:active p {
+      color: white;
+      background: #dcb088;
+      border: 3px solid #dcb088; }
 
 ul {
   list-style: none;

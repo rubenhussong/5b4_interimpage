@@ -87,16 +87,3 @@ function scrollUp() {
 function scrollDown() {
     $('body,html').animate({ scrollTop: $(window).height() }, 500)
 }
-
-var button = $(":button")
-
-// Button focus live
-button.on('mousedown', function(evt) {
-    $('#' + evt.target.id).addClass("focused")
-})
-button.on('mouseup', function(evt) {
-    $('#' + evt.target.id).removeClass("focused")
-})
-button.on('mouseout', function(evt) {
-    $('#' + evt.target.id).removeClass("focused")
-})

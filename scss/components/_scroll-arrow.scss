@@ -1,4 +1,6 @@
 #wrapper-arrow-scroll-down {
+    @include typo-symbols;
+    font-size: $fontsize-xl;
     z-index: 100;
     position: fixed;
     width: 100%;
@@ -18,21 +20,30 @@
         pointer-events: none;
     }
     #arrow-scroll-down {
-        display: inline-block;
-        svg {
-            pointer-events: none;
-            width: $fontsize-m;
-            height: 1.5rem;
-            fill: $color-dark;
-            transform: translateY(0);
-            transition: .2s ease;
+        text-align: center;
+    
+        p {
+            color: $color-dark;
+            border: 3px solid $color-dark;
+            background: white;
+            width: 1.5 * $fontsize-xl;
+            height: 1.5 * $fontsize-xl;
+            border-radius: 50%;
+            transition: .3s ease;
+
+            span {
+                transform: translateY(-.16rem);
+                display: inline-block;
+            }
         }
-        &.focused svg {
-            fill: rgba($color-accent, .8) !important;
+        &:hover p {
+            color: $color-dark;
+            background: $color-accent;
         }
-        &:hover svg {
-            transform: translateY(.2rem);
-            fill: $color-accent;
+        &:active p {
+            color: $color-light;
+            background: $color-accent;
+            border: 3px solid $color-accent;
         }
     }
 }

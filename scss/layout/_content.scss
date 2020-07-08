@@ -35,7 +35,7 @@ section {
         }
     }
 
-    &#donation-banner {
+    &.section-two-columns {
         width: 100%;
         padding: 6rem 3rem;
         display: flex;
@@ -45,9 +45,19 @@ section {
 
         div {
             width: 50%;
-            text-align: center;
+        }
+        
+        @include max-width('small') {
+            flex-direction: column;
+            div {
+                margin: 2rem 0;
+                width: 100%;
+            }
+        }
 
-            &#wrapper-oeoo-logo {
+        &#donation-banner {
+        
+            #wrapper-oeoo-logo {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -57,32 +67,55 @@ section {
                     max-width: 300px;
                     margin: 0;
                     padding: 0;
+                    
                     img {
                         width: 100%;
                     }
                 }
             }
-
-            #donation-counter-amount {
-                @include typo-symbols;
-                text-transform: lowercase;
-                line-height: 1;
-                font-size: $fontsize-xxl;
-            }
-            #donation-counter-donated {
-                @include typo-serif(normal, normal);
-                font-size: $fontsize-xs;
+            
+            #wrapper-donation-counter {
+                text-align: center;
+                
+                #donation-counter-amount {
+                    @include typo-symbols;
+                    text-transform: lowercase;
+                    line-height: 1;
+                    font-size: $fontsize-xxl;
+                }
+                #donation-counter-donated {
+                    @include typo-serif(normal, normal);
+                    font-size: $fontsize-xs;
+                }
             }
         }
-
-        @include max-width('small') {
-            flex-direction: column;
-            div {
-                margin: 2rem 0;
-                width: 100%;
+        
+        &#product-details {
+            padding-top: 0;
+            display: flex;
+            flex-direction: row;
+            
+            ul {
+                padding-left: calc((100vw/6) - 3.5rem);
+            }
+    
+            .detail-icons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+    
+                .detail-icon {
+                    width: 5rem;
+                    margin: .75rem;
+    
+                    img {
+                    }
+                }
             }
         }
     }
+
+    
 
     &.banner-image {
         .banner-image-wrapper {
@@ -94,27 +127,6 @@ section {
         img {
             box-sizing: border-box;
             width: 100%;
-        }
-    }
-
-    &#product-details {
-      padding-top: 0;
-    }
-
-    &#product-details {
-        .detail-icons {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-
-            .detail-icon {
-                width: 5rem;
-                margin: 1rem;
-
-                img {
-                }
-            }
-
         }
     }
 }
