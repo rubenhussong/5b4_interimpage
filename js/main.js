@@ -105,8 +105,13 @@ function loop() {
     elementsToShow.forEach(function (element) {
         if (isElementInViewport(element)) {
             element.classList.add('is-visible')
+            element.classList.remove('invisible-again')
+        } else if (isElementOverViewport(element)) {
+            element.classList.remove('is-visible')
+            element.classList.add('invisible-again')
         } else {
             element.classList.remove('is-visible')
+            element.classList.remove('invisible-again')
         }
     })
 
@@ -115,7 +120,6 @@ function loop() {
 
 loop();
 
-// Helper function from: http://stackoverflow.com/a/7557433/274826
 function isElementInViewport(el) {
     // special bonus for those using jQuery
     if (typeof jQuery === "function" && el instanceof jQuery) {
@@ -131,5 +135,17 @@ function isElementInViewport(el) {
         ||
         (rect.top >= 0 &&
             rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
-    );
+    )
+}
+
+
+function isElementOverViewport(el) {
+    // special bonus for those using jQuery
+    if (typeof jQuery === "function" && el instanceof jQuery) {
+        el = el[0];
+    }
+    var rect = el.getBoundingClientRect();
+    return (
+        (rect.bottom < 0)
+    )
 }

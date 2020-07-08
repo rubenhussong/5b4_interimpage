@@ -481,12 +481,14 @@ ul {
           width: 100%; } }
 
 .show-on-scroll {
-  opacity: 0;
-  transform: scale(0.5);
-  transition: .3s ease; }
+  opacity: .5;
+  transform: translateY(4rem) scale(0.95);
+  transition: .4s ease-out; }
   .show-on-scroll.is-visible {
     opacity: 1;
-    transform: scale(1); }
+    transform: translateY(0) scale(1); }
+  .show-on-scroll.invisible-again {
+    transform: translateY(-4rem) scale(0.9); }
 
 #bottle .slideshow {
   position: relative;
@@ -498,7 +500,8 @@ ul {
     position: relative;
     width: calc(5 * (100vw/6) - 6rem); }
     #bottle .slideshow .slide img {
-      width: 60vw; }
+      max-width: 60vw;
+      max-height: calc(100vh - 6rem); }
       #bottle .slideshow .slide img:hover {
         cursor: grab; }
       #bottle .slideshow .slide img:active {

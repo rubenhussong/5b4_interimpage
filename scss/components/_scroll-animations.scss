@@ -1,10 +1,13 @@
 .show-on-scroll {
-    opacity: 0;
-    transform: scale(.5);
-    transition: .3s ease;
+    opacity: .5;
+    transform: translateY(4rem) scale(.95);
+    transition: .4s ease-out;
 
     &.is-visible {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0) scale(1);
+    }
+    &.invisible-again {
+        transform: translateY(-4rem) scale(.9);
     }
 }
