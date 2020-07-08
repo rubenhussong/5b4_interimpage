@@ -484,11 +484,19 @@ ul {
   opacity: .5;
   transform: translateY(4rem) scale(0.95);
   transition: .4s ease-out; }
+  .show-on-scroll.invisible-again {
+    transform: translateY(-4rem) scale(0.9); }
+  .show-on-scroll.scroll-image {
+    transform: scale(0.8); }
+    .show-on-scroll.scroll-image.invisible-again {
+      transform: scale(0.8); }
+  .show-on-scroll.scroll-detail {
+    transform: scale(0.5); }
+    .show-on-scroll.scroll-detail.invisible-again {
+      transform: scale(0.8); }
   .show-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0) scale(1); }
-  .show-on-scroll.invisible-again {
-    transform: translateY(-4rem) scale(0.9); }
 
 #bottle .slideshow {
   position: relative;

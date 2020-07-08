@@ -2,12 +2,27 @@
     opacity: .5;
     transform: translateY(4rem) scale(.95);
     transition: .4s ease-out;
+    &.invisible-again {
+        transform: translateY(-4rem) scale(.9);
+    }
+    
+
+    &.scroll-image {
+        transform: scale(.8);
+        &.invisible-again {
+            transform: scale(.8);
+        }
+    }
+
+    &.scroll-detail {
+        transform: scale(.5);
+        &.invisible-again {
+            transform: scale(.8);
+        }
+    }
 
     &.is-visible {
         opacity: 1;
         transform: translateY(0) scale(1);
-    }
-    &.invisible-again {
-        transform: translateY(-4rem) scale(.9);
     }
 }
