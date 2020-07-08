@@ -100,4 +100,21 @@ section {
     &#product-details {
       padding-top: 0;
     }
+
+    &#product-details {
+        .detail-icons {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+
+            .detail-icon {
+                width: 5rem;
+                margin: 1rem;
+
+                img {
+                }
+            }
+
+        }
+    }
 }
