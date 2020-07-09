@@ -1,28 +1,44 @@
 .show-on-scroll {
-    opacity: .5;
-    transform: translateY(4rem) scale(.95);
+    opacity: 1;
+    transform: translateY(0) scale(1);
     transition: .4s ease-out;
-    &.invisible-again {
-        transform: translateY(-4rem) scale(.9);
+
+
+    // specific position scroll behaviour (top, bottom)
+
+    &.under-viewport{
+        transform: translateY(4rem) scale(.9);
     }
     
-
-    &.scroll-image {
-        transform: scale(.8);
-        &.invisible-again {
-            transform: scale(.8);
-        }
+    &.over-viewport{
+        transform: translateY(-4rem) scale(.9);
     }
 
-    &.scroll-detail {
-        transform: scale(.5);
-        &.invisible-again {
+    // general scroll behaviour
+
+    &.under-viewport, 
+    &.over-viewport {
+        opacity: .5;
+
+        // custom scroll behaviour
+
+        &.scroll-image {
             transform: scale(.8);
         }
+        
+        &.scroll-detail {
+            transform: scale(.5);
+        }
     }
+}
 
-    &.is-visible {
-        opacity: 1;
-        transform: translateY(0) scale(1);
+li.show-on-scroll {
+
+    &.under-viewport{
+        transform: translateX(2rem) translateY(4rem) scale(.9);
+    }
+    
+    &.over-viewport{
+        transform: translateX(2rem) translateY(-4rem) scale(.9);
     }
 }

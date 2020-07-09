@@ -1,6 +1,6 @@
 #wrapper-arrow-scroll-down {
     @include typo-symbols;
-    font-size: $fontsize-xl;
+    font-size: $fontsize-l;
     z-index: 100;
     position: fixed;
     width: 100%;
@@ -24,10 +24,10 @@
     
         p {
             color: $color-dark;
-            border: 3px solid $color-dark;
+            border: 2.5px solid $color-dark;
             background: white;
-            width: 1.5 * $fontsize-xl;
-            height: 1.5 * $fontsize-xl;
+            width: 1.25 * $fontsize-xl;
+            height: 1.25 * $fontsize-xl;
             border-radius: 50%;
             transition: .3s ease;
 

@@ -92,7 +92,7 @@ function scrollDown() {
 // ================================================== S C R O L L   A N I M A T I O N S
 
 window.addEventListener('scroll', function () {
-    console.log("Scrollin'")
+    loop();
 })
 
 var scroll = window.requestAnimationFrame ||
@@ -103,22 +103,22 @@ var elementsToShow = document.querySelectorAll('.show-on-scroll')
 function loop() {
 
     elementsToShow.forEach(function (element) {
-        if (isElementInViewport(element)) {
-            element.classList.add('is-visible')
-            element.classList.remove('invisible-again')
-        } else if (isElementOverViewport(element)) {
-            element.classList.remove('is-visible')
-            element.classList.add('invisible-again')
-        } else {
-            element.classList.remove('is-visible')
-            element.classList.remove('invisible-again')
+        if (isElementOverViewport(element)) {
+            element.classList.remove('under-viewport')
+            element.classList.add('over-viewport')
+        } else if (!isElementInViewport(element)) {
+            element.classList.add('under-viewport')
+            element.classList.remove('over-viewport')
+        } else{
+            element.classList.remove('under-viewport')
+            element.classList.remove('over-viewport')
         }
     })
 
     scroll(loop)
 }
 
-loop();
+var run = true
 
 function isElementInViewport(el) {
     // special bonus for those using jQuery
@@ -126,6 +126,7 @@ function isElementInViewport(el) {
         el = el[0];
     }
     var rect = el.getBoundingClientRect();
+    
     return (
         (rect.top <= 0
             && rect.bottom >= 0)
@@ -149,3 +150,9 @@ function isElementOverViewport(el) {
         (rect.bottom < 0)
     )
 }
+
+// ================================================== P R E L O A D E R   B O X
+
+$( window ).load(function() {
+    $('#preloader-box').addClass('hidden');
+})

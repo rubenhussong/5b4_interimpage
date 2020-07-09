@@ -364,6 +364,22 @@ section {
     box-sizing: border-box;
     width: 100%; }
 
+#preloader-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .4s ease, visibility 0s ease .4s; }
+  #preloader-box.hidden {
+    opacity: 0;
+    visibility: hidden; }
+
 button {
   border: none;
   cursor: pointer;
@@ -394,7 +410,7 @@ button {
   font-style: normal;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   z-index: 100;
   position: fixed;
   width: 100%;
@@ -414,10 +430,10 @@ button {
     text-align: center; }
     #wrapper-arrow-scroll-down #arrow-scroll-down p {
       color: black;
-      border: 3px solid black;
+      border: 2.5px solid black;
       background: white;
-      width: 2.625rem;
-      height: 2.625rem;
+      width: 2.1875rem;
+      height: 2.1875rem;
       border-radius: 50%;
       transition: .3s ease; }
       #wrapper-arrow-scroll-down #arrow-scroll-down p span {
@@ -481,22 +497,25 @@ ul {
           width: 100%; } }
 
 .show-on-scroll {
-  opacity: .5;
-  transform: translateY(4rem) scale(0.95);
+  opacity: 1;
+  transform: translateY(0) scale(1);
   transition: .4s ease-out; }
-  .show-on-scroll.invisible-again {
+  .show-on-scroll.under-viewport {
+    transform: translateY(4rem) scale(0.9); }
+  .show-on-scroll.over-viewport {
     transform: translateY(-4rem) scale(0.9); }
-  .show-on-scroll.scroll-image {
-    transform: scale(0.8); }
-    .show-on-scroll.scroll-image.invisible-again {
+  .show-on-scroll.under-viewport, .show-on-scroll.over-viewport {
+    opacity: .5; }
+    .show-on-scroll.under-viewport.scroll-image, .show-on-scroll.over-viewport.scroll-image {
       transform: scale(0.8); }
-  .show-on-scroll.scroll-detail {
-    transform: scale(0.5); }
-    .show-on-scroll.scroll-detail.invisible-again {
-      transform: scale(0.8); }
-  .show-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0) scale(1); }
+    .show-on-scroll.under-viewport.scroll-detail, .show-on-scroll.over-viewport.scroll-detail {
+      transform: scale(0.5); }
+
+li.show-on-scroll.under-viewport {
+  transform: translateX(2rem) translateY(4rem) scale(0.9); }
+
+li.show-on-scroll.over-viewport {
+  transform: translateX(2rem) translateY(-4rem) scale(0.9); }
 
 .slideshow-wrapper {
   overflow: visible; }

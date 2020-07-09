@@ -1,0 +1,19 @@
+#preloader-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: $color-light;
+    z-index: 1000;
+    pointer-events: none;
+
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .4s ease, visibility 0s ease .4s;
+
+    &.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
