@@ -35,10 +35,10 @@
 li.show-on-scroll {
 
     &.under-viewport{
-        transform: translateX(2rem) translateY(4rem) scale(.9);
+        transform: translateX(3rem) translateY(4rem) scale(.9);
     }
     
     &.over-viewport{
-        transform: translateX(2rem) translateY(-4rem) scale(.9);
+        transform: translateX(-3rem) translateY(-4rem) scale(.9);
     }
 }

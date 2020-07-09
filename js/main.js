@@ -88,71 +88,44 @@ function scrollDown() {
     $('body,html').animate({ scrollTop: $(window).height() }, 500)
 }
 
-
 // ================================================== S C R O L L   A N I M A T I O N S
 
-window.addEventListener('scroll', function () {
-    loop();
-})
-
-var scroll = window.requestAnimationFrame ||
-    function (callback) { window.setTimeout(callback, 1000 / 60) }
-
-var elementsToShow = document.querySelectorAll('.show-on-scroll')
-
-function loop() {
-
-    elementsToShow.forEach(function (element) {
-        if (isElementOverViewport(element)) {
-            element.classList.remove('under-viewport')
-            element.classList.add('over-viewport')
-        } else if (!isElementInViewport(element)) {
-            element.classList.add('under-viewport')
-            element.classList.remove('over-viewport')
-        } else{
-            element.classList.remove('under-viewport')
-            element.classList.remove('over-viewport')
+const callback = function (entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.remove('under-viewport')
+            entry.target.classList.remove('over-viewport')
+        } else if (isOverViewportCenterX(entry)){
+            entry.target.classList.remove('under-viewport')
+            entry.target.classList.add('over-viewport')
+        } else {
+            entry.target.classList.add('under-viewport')
+            entry.target.classList.remove('over-viewport')
         }
-    })
+    });
+};
 
-    scroll(loop)
-}
-
-var run = true
-
-function isElementInViewport(el) {
-    // special bonus for those using jQuery
-    if (typeof jQuery === "function" && el instanceof jQuery) {
-        el = el[0];
-    }
-    var rect = el.getBoundingClientRect();
+function isOverViewportCenterX(entry) {
     
-    return (
-        (rect.top <= 0
-            && rect.bottom >= 0)
-        ||
-        (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight))
-        ||
-        (rect.top >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
-    )
-}
-
-
-function isElementOverViewport(el) {
-    // special bonus for those using jQuery
-    if (typeof jQuery === "function" && el instanceof jQuery) {
-        el = el[0];
+    let viewportCenterX
+    if (entry.rootBounds !== null) {
+        viewportCenterX = entry.rootBounds.height / 2
+    } else {
+        viewportCenterX = 400
     }
-    var rect = el.getBoundingClientRect();
-    return (
-        (rect.bottom < 0)
-    )
+
+    return (entry.boundingClientRect.bottom < viewportCenterX)
 }
+
+const observer = new IntersectionObserver(callback);
+
+const targets = document.querySelectorAll(".show-on-scroll");
+targets.forEach(function (target) {
+    observer.observe(target);
+});
 
 // ================================================== P R E L O A D E R   B O X
 
-$( window ).load(function() {
+$(window).load(function () {
     $('#preloader-box').addClass('hidden');
 })

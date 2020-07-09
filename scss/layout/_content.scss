@@ -80,7 +80,7 @@ section {
                 #donation-counter-amount {
                     @include typo-symbols;
                     text-transform: lowercase;
-                    line-height: 1;
+                    line-height: 1.3;
                     font-size: $fontsize-xxl;
                 }
                 #donation-counter-donated {
@@ -97,11 +97,20 @@ section {
             
             ul {
                 padding-left: calc((100vw/6) - 3.5rem);
+                height: 4 * 1.5 * $font-size-m;
+                
+                li {
+                    width: 100%;
+                }
+                  
+                @include max-width('medium') {
+                    padding: 0 1.5rem;
+                }
             }
     
             .detail-icons {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
     
                 .detail-icon {
