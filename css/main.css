@@ -196,6 +196,9 @@ p {
   margin-inline-start: 0;
   margin-inline-end: 0; }
 
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
 header {
   z-index: 2000;
   position: fixed;
