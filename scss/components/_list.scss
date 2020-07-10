@@ -21,10 +21,6 @@ ul {
     }
 
     &.detail-list {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
 
       li {
         font-size: $fontsize-s;

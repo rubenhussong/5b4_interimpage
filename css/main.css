@@ -190,6 +190,12 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important; } }
 
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0; }
+
 header {
   z-index: 2000;
   position: fixed;
@@ -286,19 +292,53 @@ section {
     section.info a:after {
       background: #dcb088; }
     @media (max-width: 800px) {
-      section.info {
-        padding: 0 1.5rem; }
-        section.info p,
-        section.info h1 {
-          width: 100%; } }
+      section.info p,
+      section.info h1 {
+        width: 100%; } }
     @media (max-width: 500px) {
       section.info {
+        padding: 0 1.5rem;
         margin: 0;
         width: 100%; }
         section.info p {
           margin-top: 2.52rem; }
         section.info h1 {
           margin-left: 0; } }
+    section.info#product-details {
+      padding-top: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center; }
+      section.info#product-details .detail-list {
+        width: 100%;
+        height: 7.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding-top: .75rem; }
+        section.info#product-details .detail-list li {
+          width: 50%; }
+        @media (max-width: 800px) {
+          section.info#product-details .detail-list {
+            height: auto; }
+            section.info#product-details .detail-list li {
+              width: 100%; } }
+        @media (max-width: 500px) {
+          section.info#product-details .detail-list {
+            width: 70%; } }
+      section.info#product-details .detail-icons {
+        display: flex;
+        align-items: center; }
+        @media (max-width: 1100px) {
+          section.info#product-details .detail-icons {
+            flex-direction: column; } }
+        section.info#product-details .detail-icons .detail-icon {
+          width: 5rem;
+          margin: .75rem; }
+      @media (max-width: 500px) {
+        section.info#product-details {
+          margin-bottom: 6rem; } }
   section.section-two-columns {
     width: 100%;
     padding: 6rem 3rem;
@@ -343,25 +383,6 @@ section {
         text-transform: none;
         letter-spacing: 0;
         font-size: 0.75rem; }
-    section.section-two-columns#product-details {
-      padding-top: 0;
-      display: flex;
-      flex-direction: row; }
-      section.section-two-columns#product-details ul {
-        padding-left: calc((100vw/6) - 3.5rem); }
-        @media (max-width: 1200px) {
-          section.section-two-columns#product-details ul li {
-            width: 100%; } }
-        @media (max-width: 800px) {
-          section.section-two-columns#product-details ul {
-            padding: 0 1.5rem; } }
-      section.section-two-columns#product-details .detail-icons {
-        display: flex;
-        flex-direction: column;
-        align-items: center; }
-        section.section-two-columns#product-details .detail-icons .detail-icon {
-          width: 5rem;
-          margin: .75rem; }
   section.banner-image .banner-image-wrapper {
     padding: 0 3rem; }
     @media (max-width: 800px) {
@@ -478,24 +499,19 @@ ul {
       /* Needed to add space between the bullet and the text */
       width: 1.2rem;
       /* Also needed for space (tweak if needed) */ }
-  ul.detail-list {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap; }
-    ul.detail-list li {
-      font-size: 1rem;
-      width: 50%; }
-      ul.detail-list li::before {
-        content: "→";
-        font-family: "symbols", Arial, sans-serif;
-        font-weight: normal;
-        font-style: normal;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: #dcb088;
-        display: inline-block;
-        width: 1.2rem; }
+  ul.detail-list li {
+    font-size: 1rem;
+    width: 50%; }
+    ul.detail-list li::before {
+      content: "→";
+      font-family: "symbols", Arial, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #dcb088;
+      display: inline-block;
+      width: 1.2rem; }
 
 .show-on-scroll {
   opacity: 1;
