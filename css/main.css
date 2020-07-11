@@ -60,7 +60,6 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   color: black;
   font-family: "domaine", arial, sans-serif;
   font-weight: normal;
@@ -282,95 +281,88 @@ footer {
       width: 100%;
       margin-top: 1.68rem; } }
 
-section {
+.section {
   width: 100%;
-  padding: 6rem 0;
-  margin: 0; }
-  section.info {
-    width: calc(4*(100%/6));
-    margin: 0 calc(100%/6); }
-    section.info p {
+  padding: 6rem 0; }
+  .section.info {
+    padding: 6rem calc(100%/6); }
+    .section.info p {
       font-size: 1.25rem;
       line-height: 1.7; }
-    section.info a:after {
+    .section.info a:after {
       background: #dcb088; }
     @media (max-width: 800px) {
-      section.info p,
-      section.info h1 {
+      .section.info p,
+      .section.info h1 {
         width: 100%; } }
     @media (max-width: 500px) {
-      section.info {
-        padding: 0 1.5rem;
-        margin: 0;
-        width: 100%; }
-        section.info p {
-          margin-top: 2.52rem; }
-        section.info h1 {
-          margin-left: 0; } }
-    section.info#product-details {
+      .section.info {
+        padding: 2.5rem 1.5rem 0;
+        width: calc(100% - 1.5rem); } }
+    .section.info#product-details {
       padding-top: 0;
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center; }
-      section.info#product-details .detail-list {
+      .section.info#product-details .detail-list {
         width: 100%;
         height: 7.5rem;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         padding-top: .75rem; }
-        section.info#product-details .detail-list li {
+        .section.info#product-details .detail-list li {
           width: 50%; }
         @media (max-width: 800px) {
-          section.info#product-details .detail-list {
+          .section.info#product-details .detail-list {
             height: auto; }
-            section.info#product-details .detail-list li {
+            .section.info#product-details .detail-list li {
               width: 100%; } }
         @media (max-width: 500px) {
-          section.info#product-details .detail-list {
+          .section.info#product-details .detail-list {
             width: 70%; } }
-      section.info#product-details .detail-icons {
+      .section.info#product-details .detail-icons {
         display: flex;
         align-items: center; }
         @media (max-width: 1100px) {
-          section.info#product-details .detail-icons {
+          .section.info#product-details .detail-icons {
             flex-direction: column; } }
-        section.info#product-details .detail-icons .detail-icon {
+        .section.info#product-details .detail-icons .detail-icon {
           width: 5rem;
           margin: .75rem; }
       @media (max-width: 500px) {
-        section.info#product-details {
+        .section.info#product-details {
           margin-bottom: 6rem; } }
-  section.section-two-columns {
+  .section.section-two-columns {
     width: 100%;
     padding: 6rem 3rem;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center; }
-    section.section-two-columns div {
+    .section.section-two-columns div {
       width: 50%; }
     @media (max-width: 500px) {
-      section.section-two-columns {
+      .section.section-two-columns {
         flex-direction: column; }
-        section.section-two-columns div {
+        .section.section-two-columns div {
           margin: 2rem 0;
           width: 100%; } }
-    section.section-two-columns#donation-banner #wrapper-oeoo-logo {
+    .section.section-two-columns#donation-banner #wrapper-oeoo-logo {
       display: flex;
       justify-content: center;
       align-items: center; }
-      section.section-two-columns#donation-banner #wrapper-oeoo-logo a {
+      .section.section-two-columns#donation-banner #wrapper-oeoo-logo a {
         width: 60%;
         max-width: 300px;
         margin: 0;
         padding: 0; }
-        section.section-two-columns#donation-banner #wrapper-oeoo-logo a img {
+        .section.section-two-columns#donation-banner #wrapper-oeoo-logo a img {
           width: 100%; }
-    section.section-two-columns#donation-banner #wrapper-donation-counter {
+    .section.section-two-columns#donation-banner #wrapper-donation-counter {
       text-align: center; }
-      section.section-two-columns#donation-banner #wrapper-donation-counter #donation-counter-amount {
+      .section.section-two-columns#donation-banner #wrapper-donation-counter #donation-counter-amount {
         font-family: "symbols", Arial, sans-serif;
         font-weight: normal;
         font-style: normal;
@@ -379,19 +371,19 @@ section {
         text-transform: lowercase;
         line-height: 1.3;
         font-size: 2.5rem; }
-      section.section-two-columns#donation-banner #wrapper-donation-counter #donation-counter-donated {
+      .section.section-two-columns#donation-banner #wrapper-donation-counter #donation-counter-donated {
         font-family: "domaine", arial, sans-serif;
         font-weight: normal;
         font-style: normal;
         text-transform: none;
         letter-spacing: 0;
         font-size: 0.75rem; }
-  section.banner-image .banner-image-wrapper {
+  .section.banner-image .banner-image-wrapper {
     padding: 0 3rem; }
     @media (max-width: 800px) {
-      section.banner-image .banner-image-wrapper {
+      .section.banner-image .banner-image-wrapper {
         padding: 0; } }
-  section.banner-image img {
+  .section.banner-image img {
     box-sizing: border-box;
     width: 100%; }
 
