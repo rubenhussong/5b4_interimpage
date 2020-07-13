@@ -11,7 +11,7 @@
         }
 
         a:after {
-            background: rgb(220, 176, 136);
+            background: $color-accent;
         }
 
         @include max-width('medium') {
