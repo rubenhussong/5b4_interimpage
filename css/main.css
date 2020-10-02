@@ -314,18 +314,18 @@ footer {
         padding-top: .75rem; }
         .section.info#product-details .detail-list li {
           width: 50%; }
-        @media (max-width: 800px) {
+        @media (max-width: 1000px) {
           .section.info#product-details .detail-list {
             height: auto; }
             .section.info#product-details .detail-list li {
               width: 100%; } }
         @media (max-width: 500px) {
           .section.info#product-details .detail-list {
-            width: 70%; } }
+            width: 80%; } }
       .section.info#product-details .detail-icons {
         display: flex;
         align-items: center; }
-        @media (max-width: 1100px) {
+        @media (max-width: 1200px) {
           .section.info#product-details .detail-icons {
             flex-direction: column; } }
         .section.info#product-details .detail-icons .detail-icon {
@@ -402,6 +402,56 @@ footer {
   #preloader-box.hidden {
     opacity: 0;
     visibility: hidden; }
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  /* Tooltip text */
+  /* Show the tooltip text when you mouse over the tooltip container */ }
+  .tooltip .tooltip-text {
+    background-color: #dcb088;
+    color: white;
+    text-align: center;
+    font-family: "vg5000", Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    /* Size and position */
+    padding: 6px;
+    border-radius: 6px;
+    width: 12.4rem;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -6.2rem;
+    /* Fade in tooltip */
+    transform-origin: center bottom;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: .2s ease-out;
+    /* Tooltip arrow */ }
+    @media (max-width: 1000px) {
+      .tooltip .tooltip-text {
+        margin-left: 0;
+        left: 0;
+        margin-bottom: 4px; } }
+    .tooltip .tooltip-text::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #dcb088 transparent transparent transparent; }
+  .tooltip:hover .tooltip-text {
+    visibility: visible;
+    transform: scale(1);
+    opacity: 1; }
 
 button {
   border: none;

@@ -46,14 +46,14 @@
                     width: 50%;
                 }
                 
-                @include max-width('medium') {
+                @include max-width('large') {
                     height: auto;
                     li {
                         width: 100%;
                     }
                 }
                 @include max-width('small') {
-                    width: 70%;
+                    width: 80%;
                 }
             }
     
@@ -61,7 +61,7 @@
                 display: flex;
                 align-items: center;
     
-                @include max-width('large') {
+                @include max-width('extralarge') {
                     flex-direction: column;
                 }
 
